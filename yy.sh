@@ -8,6 +8,8 @@ checkUser() {
 }
 checkUser
 
+echo `git co master`
+
 cd /app/repo/distr-backend
 git pull
 
