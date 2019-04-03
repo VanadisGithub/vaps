@@ -1,3 +1,5 @@
+debug: true
+
 server:
   port: 8003
 
@@ -14,6 +16,7 @@ cup:
 
 #去除CONDITIONS EVALUATION REPORT日志信息
 logging:
+  config: classpath:logback-spring.xml
   level:
     org.springframework.boot.autoconfigure: ERROR
 
@@ -44,6 +47,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8002/eureka/
+
 
 
 

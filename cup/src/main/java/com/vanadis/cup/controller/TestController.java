@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Api(tags = "TestController", description = "测试")
+@RequestMapping("test")
 public class TestController {
 
     @Autowired
@@ -36,5 +38,24 @@ public class TestController {
         message.setText(context);
         mailSender.send(message);
         return context;
+    }
+
+    @ApiOperation(value = "测试")
+    @ApiImplicitParam(name = "context", value = "123")
+    @GetMapping("test")
+    public String test(@RequestParam(required = false) String context) {
+        return "服务通！";
+    }
+
+    @ApiOperation(value = "发送邮件")
+    @ApiImplicitParam(name = "context", value = "123")
+    @GetMapping("hystrix")
+    public String hystrix(@RequestParam(required = false) String context) {
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "hystrix!";
     }
 }
