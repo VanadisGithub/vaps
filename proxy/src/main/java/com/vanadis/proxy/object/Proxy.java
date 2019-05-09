@@ -1,13 +1,17 @@
-package com.vanadis.cup.object.proxy;
+package com.vanadis.proxy.object;
 
 import lombok.Data;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
 
 /**
  * @description:
  * @author: Created by 遥远 on 2019-02-01 14:28
  */
 @Data
-public class Proxy {
+@Entity
+public class Proxy extends Base implements Serializable {
 
     private String ip;
     private String port;

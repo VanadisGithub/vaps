@@ -1,7 +1,8 @@
-package com.vanadis.cup.mapper;
+package com.vanadis.proxy.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.vanadis.cup.object.proxy.Proxy;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.vanadis.proxy.object.Proxy;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,5 @@ import org.springframework.stereotype.Component;
 @Mapper
 @Component
 public interface ProxyMapper extends BaseMapper<Proxy> {
-
 
 }

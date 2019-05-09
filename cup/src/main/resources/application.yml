@@ -3,10 +3,6 @@ debug: true
 server:
   port: 8003
 
-cup:
-  schedule:
-    is-sync: false
-
 #spring监控管理（访问"/actuator"）
 #management:
 #  endpoints:

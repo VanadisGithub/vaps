@@ -11,10 +11,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @description:
  * @author: Created by 遥远 on 2019-01-26 15:21
  */
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableScheduling
 @EnableTransactionManagement
-@MapperScan("com.vanadis.cup.mapper")
+@MapperScan("com.vanadis.proxy.mapper")
 @SpringBootApplication
 public class CupApplication {
 

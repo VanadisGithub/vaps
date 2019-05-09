@@ -1,19 +1,17 @@
-package com.vanadis.cup.utils.http;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.vanadis.lang.http;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class UserAgentUtils {
+/**
+ * @author yaoyuan
+ */
+public class UserAgentPools {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(UserAgentUtils.class);
-
-    public static List<String> UserAgents = new ArrayList<String>();
-    public static int size = 0;
-    static Random rand = new Random();
+    public static List<String> UserAgents = new ArrayList<>();
+    public static int size;
+    private static Random rand = new Random();
 
     static {
         //Opera

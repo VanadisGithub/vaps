@@ -7,7 +7,7 @@ import com.google.common.collect.Maps;
 import com.vanadis.cup.object.taobao.TaoBaoCoupon;
 import com.vanadis.cup.object.taobao.TaobaoBuyUrl;
 import com.vanadis.cup.utils.String.RegexUtils;
-import com.vanadis.cup.utils.http.HttpUtils;
+import com.vanadis.lang.http.HttpUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class TaobaoService {
 
         Map<String, Object> headerMap = Maps.newHashMap();
         headerMap.put("referer", "https://item.taobao.com/");
-        String resultStr = HttpUtils.doGet(activityUrl, headerMap);
+        String resultStr = HttpUtils.get(activityUrl, headerMap, null);
 
         String rgex = "onSibRequestSuccess\\((.*?)\\);";
         JSONObject data = JSONObject.parseObject(RegexUtils.getSubUtilSimple(resultStr, rgex));

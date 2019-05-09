@@ -1,0 +1,21 @@
+debug: true
+
+server:
+  port: 8016
+
+spring:
+  application:
+    name: vaps-proxy
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/vap?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    username: root
+    password: 123456
+
+app:
+  schedule:
+    is-sync: true
