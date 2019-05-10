@@ -28,7 +28,7 @@ public class HttpUtils {
         GET, POST
     }
 
-    private static int timeout = 30000;
+    private static int timeout = 5000;
 
     private static RequestConfig baseRequestConfig = RequestConfig.custom()
             .setMaxRedirects(20)
@@ -36,6 +36,14 @@ public class HttpUtils {
             .setConnectTimeout(timeout)
             .setSocketTimeout(timeout)
             .build();
+
+    public static String get(String url) {
+        return http(new HttpGet(url), null, null);
+    }
+
+    public static String get(String url, HttpHost proxy) {
+        return http(new HttpGet(url), null, proxy);
+    }
 
     public static String get(String url, Map<String, Object> headerMap, HttpHost proxy) {
         return http(new HttpGet(url), headerMap, proxy);
@@ -70,23 +78,16 @@ public class HttpUtils {
             }
         }
 
-        HttpResponse response = null;
         try {
-            response = httpClient.execute(http);
+            HttpResponse response = httpClient.execute(http);
+            int statusCode = response.getStatusLine().getStatusCode();
+            log.info("[Vanadis.HttpUtils.{}] {} {}", http.getMethod(), http.getURI(), statusCode);
+
+            if (statusCode == HttpStatus.SC_OK) {
+                return EntityUtils.toString(response.getEntity(), "utf-8");
+            }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        int statusCode = response.getStatusLine().getStatusCode();
-
-        log.info("[Vanadis.HttpUtils.{}] {} {}", http.getMethod(), http.getURI(), statusCode);
-
-        if (statusCode == HttpStatus.SC_OK) {
-            try {
-                return EntityUtils.toString(response.getEntity(), "utf-8");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
         return null;
     }

@@ -9,18 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class BaseTask {
 
-    private Boolean isOpen;
-
-    private String taskName;
-
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public BaseTask(Boolean isSync, String taskName) {
-        this.isOpen = isSync;
-        this.taskName = taskName;
-    }
+    String taskName;
 
     /**
      * 执行方法
@@ -29,14 +18,12 @@ public abstract class BaseTask {
 
     public void start() {
         try {
-            if (isOpen) {
-                Long start = System.currentTimeMillis();
-                log.info("[Vanadis.Task][{}] start ...", taskName);
-                process();
-                log.info("[Vanadis.Task][{}] end , spend time:{}", taskName, System.currentTimeMillis() - start);
-            }
+            Long start = System.currentTimeMillis();
+            log.info("[Vanadis.Task][{}] start ...", taskName);
+            process();
+            log.info("[Vanadis.Task][{}] end , spend time : {}s", taskName, (System.currentTimeMillis() - start) / 1000.000);
         } catch (Exception e) {
-            log.error("[Vanadis.Task][{}] error !!! message:{}", taskName, e);
+            log.error("[Vanadis.Task][{}] error !!! message : {}", taskName, e.getMessage(), e);
         }
     }
 

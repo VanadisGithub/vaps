@@ -10,12 +10,22 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/vap?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: 123456
 
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
 app:
   schedule:
     is-sync: true
+
+
