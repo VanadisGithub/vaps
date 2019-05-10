@@ -1,0 +1,252 @@
+2019-05-11 00:19:00.945 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:19:00.945 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:19:00.947 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:19:00.948 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:19:00.948 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:19:00.948 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:19:00.948 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:19:00.948 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:19:12.871 [Thread-48] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Unregistering application VAPS-VAP with eureka with status DOWN
+2019-05-11 00:19:12.874 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:19:12.900 [Thread-48] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2019-05-11 00:19:12.917 [Thread-48] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-11 00:19:12.932 [Thread-48] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:19:13.180 [Thread-48] INFO  com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2019-05-11 00:19:16.183 [Thread-48] INFO  com.netflix.discovery.DiscoveryClient - Unregistering ...
+2019-05-11 00:19:16.201 [Thread-48] INFO  com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2019-05-11 00:19:16.202 [Thread-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-05-11 00:19:16.212 [Thread-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-05-11 00:19:20.180 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$43352ca1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:19:20.343 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Fetching config from server at : http://localhost:8888
+2019-05-11 00:19:20.492 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2019-05-11 00:19:20.496 [main] INFO  com.vanadis.vap.VapApplication - No active profile set, falling back to default profiles: default
+2019-05-11 00:19:22.290 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:19:22.291 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:19:22.305 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2019-05-11 00:19:22.319 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:19:22.320 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:19:22.331 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
+2019-05-11 00:19:23.369 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=2d75908a-ae86-317e-bb2f-3bf08c6b4e66
+2019-05-11 00:19:23.529 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$271b29a4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:19:23.687 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConf' of type [com.vanadis.vap.conf.CacheConf$$EnhancerBySpringCGLIB$$a511bd59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:19:23.750 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$43352ca1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:19:24.197 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8022 (http)
+2019-05-11 00:19:24.213 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8022"]
+2019-05-11 00:19:24.221 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-05-11 00:19:24.222 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-11 00:19:24.228 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/yaoyuan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-05-11 00:19:24.383 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-05-11 00:19:24.383 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3851 ms
+2019-05-11 00:19:24.562 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-11 00:19:24.572 [main] INFO  com.netflix.config.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@35f01759
+2019-05-11 00:19:25.634 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-05-11 00:19:26.098 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-05-11 00:19:26.147 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-11 00:19:26.203 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-05-11 00:19:26.206 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-05-11 00:19:26.363 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-11 00:19:26.512 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-11 00:19:26.897 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:19:27.540 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-11 00:19:27.663 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-05-11 00:19:27.837 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38aed8ad, org.springframework.security.web.context.SecurityContextPersistenceFilter@64864875, org.springframework.security.web.header.HeaderWriterFilter@2bab1821, org.springframework.security.web.authentication.logout.LogoutFilter@33ef393a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6d18401b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@312e8eaf, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@79c4454, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6eeb15f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42eaf47f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50f5ce5b, org.springframework.security.web.session.SessionManagementFilter@57657b96, org.springframework.security.web.access.ExceptionTranslationFilter@34538ffe]
+2019-05-11 00:19:27.855 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-11 00:19:28.131 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-11 00:19:29.080 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-05-11 00:19:29.359 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2019-05-11 00:19:29.423 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2019-05-11 00:19:29.517 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2019-05-11 00:19:29.517 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2019-05-11 00:19:29.651 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2019-05-11 00:19:29.651 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2019-05-11 00:19:29.938 [main] INFO  c.n.d.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:19:29.958 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:19:30.036 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2019-05-11 00:19:30.039 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-11 00:19:30.043 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1557505170041 with initial instances count: 0
+2019-05-11 00:19:30.049 [main] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Registering application VAPS-VAP with eureka with status UP
+2019-05-11 00:19:30.050 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1557505170050, current=UP, previous=STARTING]
+2019-05-11 00:19:30.052 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:19:30.053 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-05-11 00:19:30.069 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-05-11 00:19:30.112 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-05-11 00:19:30.252 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
+2019-05-11 00:19:30.254 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
+2019-05-11 00:19:30.260 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
+2019-05-11 00:19:30.465 [container-1] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2019-05-11 00:19:30.467 [container-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2019-05-11 00:19:35.352 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8022"]
+2019-05-11 00:19:35.382 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8022 (http) with context path ''
+2019-05-11 00:19:35.383 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8022
+2019-05-11 00:19:35.384 [main] INFO  com.vanadis.vap.conf.AppStartConf - Application At http://192.168.199.180:8022
+2019-05-11 00:19:35.384 [main] INFO  com.vanadis.vap.conf.AppStartConf - Swagger At http://192.168.199.180:8022/swagger-ui.html
+2019-05-11 00:19:35.386 [main] INFO  com.vanadis.vap.VapApplication - Started VapApplication in 16.806 seconds (JVM running for 18.386)
+2019-05-11 00:19:35.974 [RMI TCP Connection(5)-127.0.0.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-11 00:19:35.974 [RMI TCP Connection(5)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-05-11 00:19:35.999 [RMI TCP Connection(5)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 25 ms
+2019-05-11 00:19:36.639 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Fetching config from server at : http://localhost:8888
+2019-05-11 00:19:36.651 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2019-05-11 00:20:00.037 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:20:00.038 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:20:00.038 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:20:00.039 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:20:00.039 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:20:00.039 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:20:00.039 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:20:00.065 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:20:30.052 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:20:30.053 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:20:30.054 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:20:30.054 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:20:30.054 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:20:30.054 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:20:30.054 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:20:30.073 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:21:00.056 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:21:00.058 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:21:00.059 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:21:00.059 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:21:00.059 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:21:00.059 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:21:00.059 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:21:00.081 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:21:15.684 [Thread-40] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Unregistering application VAPS-VAP with eureka with status DOWN
+2019-05-11 00:21:15.685 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:21:15.692 [Thread-40] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2019-05-11 00:21:15.698 [Thread-40] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-11 00:21:15.701 [Thread-40] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:21:15.723 [Thread-40] INFO  com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2019-05-11 00:21:18.729 [Thread-40] INFO  com.netflix.discovery.DiscoveryClient - Unregistering ...
+2019-05-11 00:21:18.743 [Thread-40] INFO  com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2019-05-11 00:21:18.743 [Thread-40] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-05-11 00:21:18.767 [Thread-40] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-05-11 00:21:22.038 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$b2080515] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:21:22.299 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Fetching config from server at : http://127.0.0.1:8003
+2019-05-11 00:21:22.735 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Located environment: name=bootstrap, profiles=[dev], label=null, version=null, state=null
+2019-05-11 00:21:22.736 [main] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: CompositePropertySource {name='configService', propertySources=[MapPropertySource {name='classpath:/bootstrap-dev.yml'}]}
+2019-05-11 00:21:22.741 [main] INFO  com.vanadis.vap.VapApplication - No active profile set, falling back to default profiles: default
+2019-05-11 00:21:24.379 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:21:24.379 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:21:24.405 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-05-11 00:21:24.426 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:21:24.427 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:21:24.447 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-05-11 00:21:25.264 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=551b2574-2c55-3f27-bfcc-a1dcf9fb717f
+2019-05-11 00:21:25.418 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$95ee0218] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:21:25.563 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConf' of type [com.vanadis.vap.conf.CacheConf$$EnhancerBySpringCGLIB$$13e495cd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:21:25.604 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$b2080515] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:21:25.992 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8022 (http)
+2019-05-11 00:21:26.008 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8022"]
+2019-05-11 00:21:26.018 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-05-11 00:21:26.018 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-11 00:21:26.025 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/yaoyuan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-05-11 00:21:26.154 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-05-11 00:21:26.155 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3386 ms
+2019-05-11 00:21:26.327 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-11 00:21:26.383 [main] INFO  com.netflix.config.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1a4cbcc6
+2019-05-11 00:21:27.397 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-05-11 00:21:27.812 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-05-11 00:21:27.895 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-11 00:21:27.977 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-05-11 00:21:27.983 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-05-11 00:21:28.431 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-11 00:21:28.665 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-05-11 00:21:29.331 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:21:29.680 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:21:29.709 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-05-11 00:21:29.719 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-05-11 00:21:29.719 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-05-11 00:21:29.736 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-11 00:22:43.388 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f34ab5eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:22:43.528 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Fetching config from server at : http://127.0.0.1:8003
+2019-05-11 00:22:43.739 [main] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Located environment: name=bootstrap, profiles=[dev], label=null, version=null, state=null
+2019-05-11 00:22:43.739 [main] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: CompositePropertySource {name='configService', propertySources=[MapPropertySource {name='classpath:/bootstrap-dev.yml'}]}
+2019-05-11 00:22:43.748 [main] INFO  com.vanadis.vap.VapApplication - No active profile set, falling back to default profiles: default
+2019-05-11 00:22:44.787 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:22:44.788 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:22:44.801 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-05-11 00:22:44.812 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-11 00:22:44.813 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-11 00:22:44.823 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+2019-05-11 00:22:45.379 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=2d75908a-ae86-317e-bb2f-3bf08c6b4e66
+2019-05-11 00:22:45.514 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d730b2ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:22:45.625 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConf' of type [com.vanadis.vap.conf.CacheConf$$EnhancerBySpringCGLIB$$552746a3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:22:45.661 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f34ab5eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-11 00:22:46.014 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8022 (http)
+2019-05-11 00:22:46.028 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8022"]
+2019-05-11 00:22:46.035 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-05-11 00:22:46.036 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-11 00:22:46.042 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/yaoyuan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-05-11 00:22:46.205 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-05-11 00:22:46.206 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2441 ms
+2019-05-11 00:22:46.423 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-11 00:22:46.434 [main] INFO  com.netflix.config.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@651cedfb
+2019-05-11 00:22:47.471 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-05-11 00:22:47.792 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-05-11 00:22:47.836 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-11 00:22:47.892 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-05-11 00:22:47.894 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-05-11 00:22:48.123 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-11 00:22:48.263 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-05-11 00:22:48.760 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-11 00:22:49.486 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-11 00:22:49.598 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-05-11 00:22:49.760 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@318beab4, org.springframework.security.web.context.SecurityContextPersistenceFilter@602d5417, org.springframework.security.web.header.HeaderWriterFilter@20425fab, org.springframework.security.web.authentication.logout.LogoutFilter@45ea6c24, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51f31fad, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7e092ca, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@79a88f45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33ccab9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@542b27af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@578483bd, org.springframework.security.web.session.SessionManagementFilter@593db293, org.springframework.security.web.access.ExceptionTranslationFilter@1a16583d]
+2019-05-11 00:22:49.776 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-11 00:22:50.016 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-11 00:22:50.864 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-05-11 00:22:51.125 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2019-05-11 00:22:51.158 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2019-05-11 00:22:51.215 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2019-05-11 00:22:51.216 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2019-05-11 00:22:51.344 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2019-05-11 00:22:51.344 [main] INFO  c.n.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2019-05-11 00:22:51.626 [main] INFO  c.n.d.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-05-11 00:22:51.646 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-05-11 00:22:51.646 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-05-11 00:22:51.646 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-05-11 00:22:51.646 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-05-11 00:22:51.647 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-05-11 00:22:51.647 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-05-11 00:22:51.647 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-05-11 00:22:51.773 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+2019-05-11 00:22:51.775 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2019-05-11 00:22:51.777 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-11 00:22:51.781 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1557505371780 with initial instances count: 2
+2019-05-11 00:22:51.788 [main] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Registering application VAPS-VAP with eureka with status UP
+2019-05-11 00:22:51.790 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1557505371790, current=UP, previous=STARTING]
+2019-05-11 00:22:51.795 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-05-11 00:22:51.795 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022: registering service...
+2019-05-11 00:22:51.817 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-05-11 00:22:51.838 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_VAPS-VAP/yaoyuans-mbp.lan:vaps-vap:8022 - registration status: 204
+2019-05-11 00:22:51.864 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-05-11 00:22:51.997 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
+2019-05-11 00:22:52.000 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
+2019-05-11 00:22:52.002 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
+2019-05-11 00:22:52.158 [container-1] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2019-05-11 00:22:52.160 [container-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2019-05-11 00:22:57.071 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8022"]
+2019-05-11 00:22:57.096 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8022 (http) with context path ''
+2019-05-11 00:22:57.097 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8022
+2019-05-11 00:22:57.098 [main] INFO  com.vanadis.vap.conf.AppStartConf - Application At http://192.168.199.180:8022
+2019-05-11 00:22:57.098 [main] INFO  com.vanadis.vap.conf.AppStartConf - Swagger At http://192.168.199.180:8022/swagger-ui.html
+2019-05-11 00:22:57.100 [main] INFO  com.vanadis.vap.VapApplication - Started VapApplication in 14.977 seconds (JVM running for 15.882)
+2019-05-11 00:22:57.844 [RMI TCP Connection(6)-127.0.0.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-11 00:22:57.844 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-05-11 00:22:57.872 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 28 ms
+2019-05-11 00:22:58.533 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Fetching config from server at : http://127.0.0.1:8003
+2019-05-11 00:22:58.638 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.c.c.client.ConfigServicePropertySourceLocator - Located environment: name=bootstrap, profiles=[dev], label=null, version=null, state=null

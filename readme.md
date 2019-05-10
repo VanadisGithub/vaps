@@ -3,10 +3,10 @@
 
 ##air
 
-##box
+##box       服务注册中心
 
-##cup
+##config    配置中心
 
-##lang
+##lang      工具包
 
-##proxy
+##proxy     代理服务

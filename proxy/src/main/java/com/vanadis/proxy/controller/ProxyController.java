@@ -1,24 +1,21 @@
 package com.vanadis.proxy.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.mysql.cj.util.StringUtils;
 import com.vanadis.lang.http.HttpUtils;
 import com.vanadis.proxy.manager.ProxyManager;
 import com.vanadis.proxy.mapper.ProxyMapper;
 import com.vanadis.proxy.model.Proxy;
-import com.vanadis.proxy.task.ProxyOf89Task;
-import com.vanadis.proxy.task.ProxyOfSJTask;
 import com.vanadis.proxy.task.ProxyOfXiciTask;
 import org.apache.http.HttpHost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.GET;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @description:

@@ -1,0 +1,17 @@
+server:
+  port: 8016
+
+spring:
+  application:
+    name: vaps-proxy
+  cloud:
+    config:
+      uri: http://127.0.0.1:8003
+      name: bootstrap
+      profile: dev
+
+app:
+  schedule:
+    is-sync: true
+
+

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author: Created by 遥远 on 2019-03-26 19:09
  */
 @Service
-@FeignClient("vaps-cup")
+@FeignClient("vaps-vap")
 public interface TestService {
 
     @GetMapping("/test/test")
