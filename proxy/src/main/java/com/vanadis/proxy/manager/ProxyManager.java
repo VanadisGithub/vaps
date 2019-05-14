@@ -1,6 +1,8 @@
 package com.vanadis.proxy.manager;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.vanadis.proxy.common.ProxyLevel;
 import com.vanadis.proxy.mapper.ProxyMapper;
 import com.vanadis.proxy.model.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,12 @@ public class ProxyManager {
         return false;
     }
 
+    public List<Proxy> getProxyList(ProxyLevel proxyLevel) {
+        QueryWrapper<Proxy> queryWrapper = new QueryWrapper<>();
+        if (proxyLevel != null) {
+            queryWrapper.le("error_num", proxyLevel.getErrorNum());
+        }
+        return proxyMapper.selectList(queryWrapper);
+    }
 
 }

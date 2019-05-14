@@ -15,13 +15,13 @@ import java.util.List;
 @Component
 public interface ProxyMapper extends BaseMapper<Proxy> {
 
-    @Update("update proxy set error_num = error_num + 1 where ip = #{ip}")
-    boolean addErrorNum(@Param("ip") String ip);
-
-    @Update("update proxy set error_num = error_num - 1 where ip = #{ip}")
-    boolean subErrorNum(@Param("ip") String ip);
-
     @Select("select * from proxy where error_num < #{num}")
     List<Proxy> selectByErrorNum(int num);
+
+    @Update("update proxy set error_num = error_num + 1 where ip = #{ip} and port = #{port}")
+    boolean addErrorNum(Proxy proxy);
+
+    @Update("update proxy set error_num = error_num - 1 where ip = #{ip} and port = #{port}")
+    boolean subErrorNum(Proxy proxy);
 
 }

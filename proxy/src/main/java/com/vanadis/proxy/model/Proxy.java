@@ -2,7 +2,6 @@ package com.vanadis.proxy.model;
 
 import lombok.Data;
 import org.apache.http.HttpHost;
-import org.apache.http.client.methods.HttpGet;
 
 import javax.persistence.Entity;
 import java.io.Serializable;

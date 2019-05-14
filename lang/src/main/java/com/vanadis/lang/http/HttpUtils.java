@@ -38,18 +38,18 @@ public class HttpUtils {
             .build();
 
     public static String get(String url) {
-        return http(new HttpGet(url), null, null);
+        return http(new HttpGet(url), null, null, true);
     }
 
     public static String get(String url, HttpHost proxy) {
-        return http(new HttpGet(url), null, proxy);
+        return http(new HttpGet(url), null, proxy, true);
     }
 
     public static String get(String url, Map<String, Object> headerMap, HttpHost proxy) {
-        return http(new HttpGet(url), headerMap, proxy);
+        return http(new HttpGet(url), headerMap, proxy, true);
     }
 
-    public String post(String url, String dataStr, Map<String, Object> headerMap, HttpHost proxy) {
+    public static String post(String url, String dataStr, Map<String, Object> headerMap, HttpHost proxy) {
         HttpPost post = new HttpPost(url);
         if (!Strings.isNullOrEmpty(dataStr)) {
             StringEntity entity = new StringEntity(dataStr, Charset.forName("utf-8"));
@@ -57,10 +57,15 @@ public class HttpUtils {
             entity.setContentType("application/json");
             post.setEntity(entity);
         }
-        return http(post, headerMap, proxy);
+        return http(post, headerMap, proxy, true);
     }
 
-    public static <T extends HttpRequestBase> String http(T http, Map<String, Object> headerMap, HttpHost proxy) {
+    public static String visit(String url, HttpHost proxy) {
+        return http(new HttpGet(url), null, proxy, false);
+    }
+
+
+    public static <T extends HttpRequestBase> String http(T http, Map<String, Object> headerMap, HttpHost proxy, boolean isLog) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         if (proxy != null) {
@@ -87,7 +92,9 @@ public class HttpUtils {
                 return EntityUtils.toString(response.getEntity(), "utf-8");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            if (isLog) {
+                e.printStackTrace();
+            }
         }
         return null;
     }

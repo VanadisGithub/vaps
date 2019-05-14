@@ -1,5 +1,6 @@
 package com.vanadis.proxy.task;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -7,9 +8,10 @@ import lombok.extern.slf4j.Slf4j;
  * @author: Created by 遥远 on 2018-09-26 20:51
  */
 @Slf4j
+@Data
 public abstract class BaseTask {
 
-    String taskName;
+    private String taskName;
 
     /**
      * 执行方法
@@ -28,3 +30,6 @@ public abstract class BaseTask {
     }
 
 }
+
+
+

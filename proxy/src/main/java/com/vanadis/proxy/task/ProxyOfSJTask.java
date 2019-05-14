@@ -1,19 +1,14 @@
 package com.vanadis.proxy.task;
 
 import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.vanadis.lang.http.HttpUtils;
-import com.vanadis.proxy.manager.ProxyManager;
 import com.vanadis.proxy.model.Proxy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.*;
 
 /**
  * @description:
@@ -22,18 +17,14 @@ import java.util.concurrent.*;
 @Component
 public class ProxyOfSJTask extends BaseProxyTask {
 
-    @Value("${app.schedule.is-sync}")
-    private Boolean isSync;
-
-    @Autowired
-    private ProxyManager proxyManager;
+    private static String name = "sj";
 
     public ProxyOfSJTask() {
-        super.taskName = "神鸡";
+        super.setTaskName(name);
     }
 
     @Override
-    public List<Proxy> result() {
+    public List<Proxy> getProxyList() {
 
         List<Proxy> proxyList = Lists.newArrayList();
 
@@ -48,7 +39,7 @@ public class ProxyOfSJTask extends BaseProxyTask {
                 continue;
             }
             String port = tds.get(1).html().trim();
-            Proxy proxy = new Proxy(ip, port, "sj");
+            Proxy proxy = new Proxy(ip, port, name);
             proxyList.add(proxy);
         }
 

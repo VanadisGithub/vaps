@@ -22,7 +22,7 @@ public class AppStartConf implements ApplicationListener<WebServerInitializedEve
     public void onApplicationEvent(WebServerInitializedEvent event) {
         try {
             logger.info("Application At http://" + InetAddress.getLocalHost().getHostAddress() + ":" + event.getWebServer().getPort());
-            logger.info("Swagger At http://" + InetAddress.getLocalHost().getHostAddress() + ":" + event.getWebServer().getPort() + "/swagger-ui.html");
+            logger.info("Swagger     At http://" + InetAddress.getLocalHost().getHostAddress() + ":" + event.getWebServer().getPort() + "/swagger-ui.html");
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

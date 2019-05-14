@@ -1,21 +1,17 @@
 package com.vanadis.proxy.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mysql.cj.util.StringUtils;
-import com.vanadis.lang.http.HttpUtils;
+import com.vanadis.proxy.common.ProxyLevel;
 import com.vanadis.proxy.manager.ProxyManager;
 import com.vanadis.proxy.mapper.ProxyMapper;
 import com.vanadis.proxy.model.Proxy;
-import com.vanadis.proxy.task.ProxyOfXiciTask;
-import org.apache.http.HttpHost;
+import com.vanadis.proxy.task.ProxyOf89Task;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @description:
@@ -25,9 +21,6 @@ import java.util.concurrent.Executors;
 public class ProxyController {
 
     @Autowired
-    private ProxyOfXiciTask proxyOfXiciTask;
-
-    @Autowired
     private ProxyManager proxyManager;
 
     @Autowired
@@ -35,27 +28,27 @@ public class ProxyController {
 
     @GetMapping("test")
     public void test() {
-
-        ExecutorService pool = Executors.newCachedThreadPool();
-
-        List<Proxy> proxyList = proxyMapper.selectList(new QueryWrapper<Proxy>().eq("status", 0));
-        proxyList.forEach(p -> {
-            HttpHost proxy = new HttpHost(p.getIp(), Integer.valueOf(p.getPort()));
-            String resultStr = HttpUtils.get("http://www.baidu.com", null, proxy);
-            if (StringUtils.isNullOrEmpty(resultStr)) {
-                proxyMapper.addErrorNum(proxy.getHostName());
-            } else {
-                proxyMapper.subErrorNum(proxy.getHostName());
-            }
-        });
+        proxyOf89Task.start();
     }
 
-    @GetMapping("get")
-    public void get() {
+    @Autowired
+    private ProxyOf89Task proxyOf89Task;
 
-        List<Proxy> list = proxyMapper.selectByErrorNum(1);
-        String r = HttpUtils.get("http://www.xicidaili.com/", list.get(new Random().nextInt(list.size())).getHttpHost());
-        System.out.println(r);
-        //        new ProxyOfXiciTask().result().forEach(proxy -> proxyManager.add(proxy));
+    @GetMapping("get-proxy")
+    public Proxy getProxy() {
+        List<Proxy> list = proxyManager.getProxyList(ProxyLevel.GOOD);
+        return list.get(new Random().nextInt(list.size()));
     }
+
+    @GetMapping("get-proxy-list")
+    public List<Proxy> getProxyList(@Param("num") int num) {
+        return proxyManager.getProxyList(ProxyLevel.GOOD).subList(0, num);
+    }
+
+    @GetMapping("get-proxy-all")
+    public List<Proxy> getProxyAll() {
+        return proxyManager.getProxyList(ProxyLevel.GOOD);
+    }
+
+
 }

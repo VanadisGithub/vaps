@@ -3,15 +3,11 @@ package com.vanadis.proxy.task;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.vanadis.lang.http.HttpUtils;
-import com.vanadis.proxy.manager.ProxyManager;
 import com.vanadis.proxy.model.Proxy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.*;
@@ -23,13 +19,14 @@ import java.util.concurrent.*;
 @Component
 public class ProxyOfKuaiTask extends BaseProxyTask {
 
+    private static String name = "kuai";
+
     public ProxyOfKuaiTask() {
-        super.taskName = "快";
+        super.setTaskName(name);
     }
 
     @Override
-    public List<Proxy> result() {
-
+    public List<Proxy> getProxyList() {
         List<Proxy> proxyList = Lists.newArrayList();
 
         CountDownLatch latch = new CountDownLatch(20);
@@ -37,14 +34,14 @@ public class ProxyOfKuaiTask extends BaseProxyTask {
         ExecutorService pool = new ThreadPoolExecutor(20, 20, 60, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(10), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
-        String[] name = {"inha", "intr"};
-        for (int index = 0; index < name.length; index++) {
+        String[] pageName = {"inha", "intr"};
+        for (int index = 0; index < pageName.length; index++) {
             for (int page = 1; page <= 3; page++) {
                 int finalPage = page;
                 int finalIndex = index;
                 pool.submit(() -> {
                     try {
-                        String url = "http://www.kuaidaili.com/free/" + name[finalIndex] + "/" + finalPage;
+                        String url = "http://www.kuaidaili.com/free/" + pageName[finalIndex] + "/" + finalPage;
                         String html = HttpUtils.get(url, null, null);
                         Document doc = Jsoup.parse(html);
                         Elements trs = doc.select("tr");
@@ -52,7 +49,7 @@ public class ProxyOfKuaiTask extends BaseProxyTask {
                             Elements tds = trs.get(i).select("td");
                             String ip = tds.get(0).html().trim();
                             String port = tds.get(1).html().trim();
-                            Proxy proxy = new Proxy(ip, port, "kuai");
+                            Proxy proxy = new Proxy(ip, port, name);
                             proxyList.add(proxy);
                         }
                     } catch (Exception e) {

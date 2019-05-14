@@ -1,5 +1,5 @@
 
-#vaps
+#vaps       Vanadis'App
 
 ##air
 
@@ -10,3 +10,5 @@
 ##lang      工具包
 
 ##proxy     代理服务
+
+##vap       主项目
