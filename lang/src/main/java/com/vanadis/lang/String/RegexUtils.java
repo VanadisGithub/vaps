@@ -1,4 +1,4 @@
-package com.vanadis.vap.utils.String;
+package com.vanadis.lang.String;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,8 +61,9 @@ public class RegexUtils {
             } else {
                 charStr = dataStr.substring(start + 2, end);
             }
-            char letter = (char) Integer.parseInt(charStr, 16); // 16进制parse整形字符串。
-            buffer.append(new Character(letter).toString());
+            /* 16进制parse整形字符串。 */
+            char letter = (char) Integer.parseInt(charStr, 16);
+            buffer.append(Character.toString(letter));
             start = end;
         }
         return buffer.toString();

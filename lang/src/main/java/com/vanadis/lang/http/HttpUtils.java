@@ -25,7 +25,16 @@ import java.util.Map;
 public class HttpUtils {
 
     public enum Method {
-        GET, POST
+
+        /**
+         *
+         */
+        GET,
+
+        /**
+         *
+         */
+        POST
     }
 
     private static int timeout = 5000;
@@ -74,7 +83,7 @@ public class HttpUtils {
         }
 
         //默认添加请求头
-        http.addHeader("user-agent", UserAgentPools.getUserAgent());
+        http.addHeader("user-agent", HttpUserAgentPools.getUserAgent());
 
 
         if (headerMap != null) {

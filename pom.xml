@@ -12,6 +12,7 @@
         <module>air</module>
         <module>box</module>
         <module>config</module>
+        <module>consumer</module>
         <module>vap</module>
         <module>lang</module>
         <module>proxy</module>

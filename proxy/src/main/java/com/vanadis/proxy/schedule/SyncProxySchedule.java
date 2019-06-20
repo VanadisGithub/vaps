@@ -33,6 +33,11 @@ public class SyncProxySchedule {
     @Autowired
     private ProxyOfXiciTask proxyOfXiciTask;
 
+    @Scheduled(cron = "* * * * * ?")
+    public void test() {
+        log.info("1");
+    }
+
     @Scheduled(cron = "0 30 0/1 * * ?")
     public void refreshProxy() {
         proxyService.refreshProxy();

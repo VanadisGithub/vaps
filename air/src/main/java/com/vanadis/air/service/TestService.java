@@ -9,13 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author: Created by 遥远 on 2019-03-26 19:09
  */
 @Service
-@FeignClient("vaps-vap")
+@FeignClient(value = "vaps-vap", fallback = TestService.class)//,
 public interface TestService {
 
-    @GetMapping("/test/test")
-    String index();
+    @GetMapping("/hystrix/test")
+    String test();
 
-    @GetMapping("/test/hystrix")
+    @GetMapping("/hystrix/hystrix")
     String hystrix();
+
+    @GetMapping("/hystrix/hystrix")
+    String hystrix2();
+
+    default String hystrixFallback() {
+        return "达也不在家！";
+    }
 
 }

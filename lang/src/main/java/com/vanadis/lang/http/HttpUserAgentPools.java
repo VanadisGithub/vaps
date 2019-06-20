@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @author yaoyuan
  */
-public class UserAgentPools {
+public class HttpUserAgentPools {
 
     public static List<String> UserAgents = new ArrayList<>();
     public static int size;
