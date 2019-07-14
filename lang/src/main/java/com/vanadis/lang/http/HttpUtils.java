@@ -25,16 +25,7 @@ import java.util.Map;
 public class HttpUtils {
 
     public enum Method {
-
-        /**
-         *
-         */
-        GET,
-
-        /**
-         *
-         */
-        POST
+        GET, POST
     }
 
     private static int timeout = 5000;

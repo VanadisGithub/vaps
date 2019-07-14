@@ -18,8 +18,8 @@ import java.util.List;
  * @description:
  * @author: Created by 遥远 on 2019-01-26 15:24
  */
+@Api("淘宝")
 @RestController
-@Api(tags = "TaobaoController", description = "淘宝")
 @RequestMapping("taobao")
 public class TaobaoController {
 

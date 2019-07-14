@@ -1,30 +1,45 @@
 package com.vanadis.lang.String;
 
+import org.apache.logging.log4j.util.Strings;
+
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * @author yaoyuan
  */
-public class RegexUtils {
+public class StringUtils {
 
     private static String HOST_PATTERN = "(http://|https://)?([^/]*)";
 
     private static String ID_PATTERN = "[?&]id=(\\d+)";
 
-    public static String getHost(String url) {
+    /**
+     * url 获取host
+     *
+     * @param url
+     * @return
+     */
+    public static String urlGetHost(String url) {
         Pattern p = Pattern.compile(HOST_PATTERN, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(url);
         return m.find() ? m.group(2) : url;
     }
 
-    public static String getId(String url) {
+    /**
+     * url 获取id
+     *
+     * @param url
+     * @return
+     */
+    public static String urlGetId(String url) {
         Pattern p = Pattern.compile(ID_PATTERN, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(url);
         while (m.find()) {
             return m.group(1);
         }
-        return "";
+        return Strings.EMPTY;
     }
 
     /**
@@ -77,12 +92,7 @@ public class RegexUtils {
      */
     public static String getRandomString(int length) {
         String keyString = "abcdefghijklmnopqrstuvwxyz0123456789";
-        StringBuffer sb = new StringBuffer();
-        int len = keyString.length();
-        for (int i = 0; i < length; i++) {
-            sb.append(keyString.charAt((int) Math.round(Math.random() * (len - 1))));
-        }
-        return sb.toString();
+        return getRandomString(keyString, length);
     }
 
     /**
@@ -93,11 +103,42 @@ public class RegexUtils {
      */
     public static String getRandomString16(int length) {
         String keyString = "abcdef0123456789";
+        return getRandomString(keyString, length);
+
+    }
+
+    /**
+     * 获取随机字符串
+     *
+     * @param length
+     * @return
+     */
+    public static String getRandomString(String keyString, int length) {
         StringBuffer sb = new StringBuffer();
         int len = keyString.length();
         for (int i = 0; i < length; i++) {
             sb.append(keyString.charAt((int) Math.round(Math.random() * (len - 1))));
         }
+        return sb.toString();
+    }
+
+
+    /**
+     * ${}参数替换工具
+     *
+     * @param template
+     * @param params
+     * @return
+     */
+    public static String replaceParams(String template, Map<String, Object> params) {
+        StringBuffer sb = new StringBuffer();
+        Matcher m = Pattern.compile("\\$\\{\\w+\\}").matcher(template);
+        while (m.find()) {
+            String param = m.group();
+            Object value = params.get(param.substring(2, param.length() - 1));
+            m.appendReplacement(sb, value == null ? "" : value.toString());
+        }
+        m.appendTail(sb);
         return sb.toString();
     }
 }

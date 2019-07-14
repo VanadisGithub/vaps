@@ -1,0 +1,23 @@
+package $!{packageName}.service;
+
+import $!{packageName}.mapper.$!{className}Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @description: $!{description}业务层
+ * @author: Created by $!{authName} on $!{dateTime}
+ */
+@Service
+public class $!{className}Service {
+
+    @Autowired
+    private $!{className}Mapper $!{sClassName}Mapper;
+
+    #foreach ( $method in $methods )
+        public $method.returnClass $method.methodName (){
+            return $!{sClassName}Mapper.$method.methodName ();
+        }
+    #end
+
+}

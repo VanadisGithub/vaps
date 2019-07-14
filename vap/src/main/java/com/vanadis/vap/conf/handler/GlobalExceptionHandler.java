@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public String exceptionHandler(Exception e) {
-        log.error("系统异常:", e);
-        return "打扰了！";
+        log.error("全局系统异常:", e);
+        return "全局系统异常！";
     }
 }

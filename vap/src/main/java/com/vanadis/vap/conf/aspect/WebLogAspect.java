@@ -37,13 +37,13 @@ public class WebLogAspect {
         HttpServletRequest request = attributes.getRequest();
 
         // 记录下请求内容
-        log.info("[Vanadis.Request] {URL : {}, HTTP_METHOD : {}, IP : {}, CLASS_METHOD : {}.{}, ARGS : {}}"
-                , request.getRequestURL().toString()
-                , request.getMethod()
-                , request.getRemoteAddr()
-                , joinPoint.getSignature().getDeclaringTypeName()
-                , joinPoint.getSignature().getName()
-                , Arrays.toString(joinPoint.getArgs()));
+        log.info("[Vanadis.Request] {URL : {}, HTTP_METHOD : {}, IP : {}, CLASS_METHOD : {}.{}, ARGS : {}}",
+                request.getRequestURL().toString(),
+                request.getMethod(),
+                request.getRemoteAddr(),
+                joinPoint.getSignature().getDeclaringTypeName(),
+                joinPoint.getSignature().getName(),
+                Arrays.toString(joinPoint.getArgs()));
 
     }
 

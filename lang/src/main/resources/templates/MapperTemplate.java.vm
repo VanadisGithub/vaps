@@ -1,0 +1,16 @@
+package $!{packageName}.mapper;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * @description: $!{description}
+ * @author: Created by $!{authName} on $!{dateTime}
+ */
+@Component
+public interface  $!{className}Mapper {
+
+    #foreach ( $method in $methods )
+        $method.returnClass $method.methodName ();
+    #end
+
+}

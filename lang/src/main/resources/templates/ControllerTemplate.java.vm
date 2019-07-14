@@ -1,0 +1,23 @@
+package $!{packageName}.controller;
+
+import $!{packageName}.service.$!{className}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @description: $!{description}控制层
+ * @author: Created by $!{authName} on $!{dateTime}
+ */
+@RestController
+public class $!{className}Controller {
+
+    @Autowired
+    private $!{className}Service $!{sClassName}Service;
+
+    #foreach ( $method in $methods )
+        public $method.returnClass $method.methodName (){
+            return $!{sClassName}Service.$method.methodName ();
+        }
+    #end
+
+}
