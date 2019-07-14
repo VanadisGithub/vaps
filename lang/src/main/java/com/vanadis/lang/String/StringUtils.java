@@ -3,6 +3,7 @@ package com.vanadis.lang.String;
 import org.apache.logging.log4j.util.Strings;
 
 import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -140,5 +141,22 @@ public class StringUtils {
         }
         m.appendTail(sb);
         return sb.toString();
+    }
+
+    /**
+     * 读取控制台内容
+     */
+    public static String scanner(String tip) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder help = new StringBuilder();
+        help.append("请输入" + tip + "：");
+        System.out.println(help.toString());
+        if (scanner.hasNext()) {
+            String ipt = scanner.next();
+            if (org.apache.commons.lang.StringUtils.isNotEmpty(ipt)) {
+                return ipt;
+            }
+        }
+        throw new Exception("请输入正确的" + tip + "！");
     }
 }

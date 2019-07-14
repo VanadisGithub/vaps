@@ -1,4 +1,4 @@
-package com.vanadis.lang.code;
+package com.vanadis.lang.code.object;
 
 /**
  * @program: vaps

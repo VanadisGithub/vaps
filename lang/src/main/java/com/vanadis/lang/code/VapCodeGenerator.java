@@ -1,8 +1,15 @@
 package com.vanadis.lang.code;
 
-import com.google.common.base.Strings;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.vanadis.lang.code.object.MethodObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -15,10 +22,10 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Scanner;
 
 /**
  * @program: vaps
@@ -26,35 +33,74 @@ import java.util.Scanner;
  * @author: 遥远
  * @create: 2019-06-28 15:14
  */
-public class CodeGenerator {
+public class VapCodeGenerator {
 
     private String authName = "遥远";
 
+    /**
+     * 项目根目录
+     */
     private String userDir = System.getProperty("user.dir");
 
-    private String codePath = userDir + "/lang";
+    /**
+     * 子项目路径
+     */
+    private String codePath = "/lang";
 
-    private String packageName = "com.vanadis.test";
+    private String packageName = "com.vanadis.CodeGenerator";
 
+    /**
+     * 生成信息：类名[类注释]{返回类型 方法名,返回类型 方法名}
+     */
     private String[] fileNames = {"aa[测试]{Long selectById,String selectByName}", "bb"};
 
-    private String targetPath = codePath + "/src/main/java/" + packageName.replace(".", "/");
+    private String targetPath = userDir + codePath + "/src/main/java/" + packageName.replace(".", "/");
 
+    /**
+     * 模版路径
+     */
     private String templateDir = "/lang/src/main/resources/templates";
 
+    /**
+     * 模版路径（全局）
+     */
     private String templatePath = userDir + templateDir;
 
     private VelocityEngine engine = newVelocityEngine();
 
+    /**
+     * 需要生成的表名
+     */
+    private String tableNames = "dt_user";
+
+    /**
+     * 数据库配置
+     */
+    private static DataSourceConfig dsc = new DataSourceConfig(){};
+
+    static {
+        dsc.setUrl("jdbc:oracle:thin:@172.16.8.121:1521:dtstack");
+        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
+        dsc.setUsername("mobile");
+        dsc.setPassword("abc123");
+    }
+
     public static void main(String[] args) throws Exception {
-        new CodeGenerator()
+        new VapCodeGenerator()
 //                .setCodePath(scanner("项目路径"))
 //                .setPackageName(scanner("包名(com.xxx.xxx)"))
 //                .setFileNames(scanner("文件名，多个英文逗号分割").split(","))
-                .run();
+                .runService();
+//                .runEntity();
     }
 
-    private void run() throws Exception {
+    /**
+     * 自动生成业务代码
+     *
+     * @return
+     * @throws Exception
+     */
+    private VapCodeGenerator runService() throws Exception {
 
         for (String fileName : fileNames) {
 
@@ -68,9 +114,14 @@ public class CodeGenerator {
                 createFile(t, context, targetFile);
             }
         }
-
+        return this;
     }
 
+    /**
+     * 创建模版引擎
+     *
+     * @return
+     */
     private VelocityEngine newVelocityEngine() {
         Properties pro = new Properties();
         pro.setProperty(Velocity.OUTPUT_ENCODING, "UTF-8");
@@ -91,12 +142,14 @@ public class CodeGenerator {
 
         int classNameIndex = fileName.length();
 
+        // 判断是否有注释
         if (fileName.contains("[") && fileName.contains("]")) {
             String description = fileName.substring(fileName.indexOf("[") + 1, fileName.indexOf("]"));
             context.put("description", description);
             classNameIndex = fileName.indexOf("[") < classNameIndex ? fileName.indexOf("[") : classNameIndex;
         }
 
+        // 判断是否有方法
         if (fileName.contains("{") && fileName.contains("}")) {
             List<MethodObject> methods = Lists.newArrayList();
             String[] methodStrings = fileName.substring(fileName.indexOf("{") + 1, fileName.indexOf("}")).split(",");
@@ -165,56 +218,143 @@ public class CodeGenerator {
         System.out.println("成功生成Java文件:" + targetFile);
     }
 
-    public static String scanner(String tip) throws Exception {
+    /**
+     * 自动生成实体代码
+     *
+     * @return
+     */
+    private VapCodeGenerator runEntity() {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入" + tip + "：");
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (!Strings.isNullOrEmpty(ipt)) {
-                return ipt;
+        // 代码生成器
+        AutoGenerator mpg = new AutoGenerator();
+
+        // 数据源配置
+        mpg.setDataSource(dsc);
+
+        // 全局配置
+        GlobalConfig gc = new GlobalConfig();
+        String projectPath = userDir + codePath;
+        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setAuthor(authName);
+        gc.setOpen(false);
+        gc.setSwagger2(true);
+        mpg.setGlobalConfig(gc);
+
+
+        // 包配置
+        PackageConfig pc = new PackageConfig();
+        pc.setParent(packageName);
+        mpg.setPackageInfo(pc);
+
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
             }
-        }
-        throw new Exception("输入错误");
+        };
+
+        String templatePath = "/templates/mapper.xml.ftl";
+
+        // 自定义输出配置
+        List<FileOutConfig> focList = new ArrayList<>();
+        // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+            }
+        });
+        cfg.setFileOutConfigList(focList);
+        mpg.setCfg(cfg);
+
+        // 配置模板
+        TemplateConfig templateConfig = new TemplateConfig();
+
+        // 配置自定义输出模板
+        //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
+        // templateConfig.setEntity("templates/entity2.java");
+        templateConfig.setService("");
+        templateConfig.setServiceImpl("");
+        templateConfig.setController("");
+
+        templateConfig.setXml(null);
+        mpg.setTemplate(templateConfig);
+
+        // 策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+//        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
+        strategy.setEntityLombokModel(true);
+        strategy.setRestControllerStyle(true);
+        // 公共父类
+//        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
+        // 写于父类中的公共字段
+        strategy.setSuperEntityColumns("id");
+        strategy.setInclude(tableNames);
+        strategy.setControllerMappingHyphenStyle(true);
+        strategy.setTablePrefix(pc.getModuleName() + "_");
+
+        mpg.setStrategy(strategy);
+        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+        mpg.execute();
+
+        return this;
     }
 
-    public CodeGenerator setAuthName(String authName) {
+    public VapCodeGenerator setAuthName(String authName) {
         this.authName = authName;
         return this;
     }
 
-    public CodeGenerator setUserDir(String userDir) {
+    public VapCodeGenerator setUserDir(String userDir) {
         this.userDir = userDir;
         return this;
     }
 
-    public CodeGenerator setCodePath(String codePath) {
+    public VapCodeGenerator setCodePath(String codePath) {
         this.codePath = codePath;
         return this;
     }
 
-    public CodeGenerator setPackageName(String packageName) {
+    public VapCodeGenerator setPackageName(String packageName) {
         this.packageName = packageName;
         return this;
     }
 
-    public CodeGenerator setFileNames(String[] fileNames) {
+    public VapCodeGenerator setFileNames(String[] fileNames) {
         this.fileNames = fileNames;
         return this;
     }
 
-    public CodeGenerator setTargetPath(String targetPath) {
+    public VapCodeGenerator setTargetPath(String targetPath) {
         this.targetPath = targetPath;
         return this;
     }
 
-    public CodeGenerator setTemplateDir(String templateDir) {
+    public VapCodeGenerator setTemplateDir(String templateDir) {
         this.templateDir = templateDir;
         return this;
     }
 
-    public CodeGenerator setTemplatePath(String templatePath) {
+    public VapCodeGenerator setTemplatePath(String templatePath) {
         this.templatePath = templatePath;
         return this;
+    }
+
+    public VapCodeGenerator setEngine(VelocityEngine engine) {
+        this.engine = engine;
+        return this;
+    }
+
+    public VapCodeGenerator setTableNames(String tableNames) {
+        this.tableNames = tableNames;
+        return this;
+    }
+
+    public static void setDsc(DataSourceConfig dsc) {
+        VapCodeGenerator.dsc = dsc;
     }
 }
