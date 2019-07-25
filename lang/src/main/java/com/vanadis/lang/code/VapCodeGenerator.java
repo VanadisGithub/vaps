@@ -71,27 +71,34 @@ public class VapCodeGenerator {
     /**
      * 需要生成的表名
      */
-    private String tableNames = "dt_user";
+    private String tableNames = "data_report_nation_scale_mix_201901_201906,data_report_prod__cate_lv1_rank_201901_201906,data_report_prod__channel_rank_201901_201906,data_report_prod_hot_comment_rank_201901_201906,data_report__inv_healthy_valuation_m_201901_201906,data_report__publi_rank_201901_201906";
 
     /**
      * 数据库配置
      */
-    private static DataSourceConfig dsc = new DataSourceConfig(){};
+    private static DataSourceConfig dsc = new DataSourceConfig() {{
 
-    static {
-        dsc.setUrl("jdbc:oracle:thin:@172.16.8.121:1521:dtstack");
-        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
-        dsc.setUsername("mobile");
-        dsc.setPassword("abc123");
-    }
+        //中金易云
+        setDriverName("com.mysql.jdbc.Driver");
+        setUrl("jdbc:mysql://drdsfacb457dx41ipublic.drds.aliyuncs.com:3306/zjyy_distr_stat");
+        setUsername("zjyy_distr_stat");
+        setPassword("Ko5QU1HQscmBiBY2");
+
+        // 福建移动
+//        setDriverName("oracle.jdbc.driver.OracleDriver");
+//        setUrl("jdbc:oracle:thin:@172.16.8.121:1521:dtstack");
+//        setUsername("mobile");
+//        setPassword("abc123");
+
+    }};
 
     public static void main(String[] args) throws Exception {
         new VapCodeGenerator()
 //                .setCodePath(scanner("项目路径"))
 //                .setPackageName(scanner("包名(com.xxx.xxx)"))
 //                .setFileNames(scanner("文件名，多个英文逗号分割").split(","))
-                .runService();
-//                .runEntity();
+//                .runService();
+                .runEntity();
     }
 
     /**
@@ -293,7 +300,7 @@ public class VapCodeGenerator {
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
-        strategy.setInclude(tableNames);
+        strategy.setInclude(tableNames.split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
 

@@ -1,7 +1,5 @@
 package com.vanadis.lang.String;
 
-import org.apache.logging.log4j.util.Strings;
-
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -10,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author yaoyuan
  */
-public class StringUtils {
+public class Strings {
 
     private static String HOST_PATTERN = "(http://|https://)?([^/]*)";
 
@@ -40,7 +38,7 @@ public class StringUtils {
         while (m.find()) {
             return m.group(1);
         }
-        return Strings.EMPTY;
+        return org.apache.logging.log4j.util.Strings.EMPTY;
     }
 
     /**
@@ -123,6 +121,37 @@ public class StringUtils {
         return sb.toString();
     }
 
+    /**
+     * 转换风格 驼峰转下划线
+     *
+     * @return
+     */
+    public static String snakeCase(String str) {
+        Pattern humpPattern = Pattern.compile("[A-Z]");
+        Matcher matcher = humpPattern.matcher(str);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
+    }
+
+    /**
+     * 转换风格 下划线转驼峰
+     *
+     * @return
+     */
+    public static String camelCase(String str) {
+        Pattern humpPattern = Pattern.compile("_[a-z]");
+        Matcher matcher = humpPattern.matcher(str);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, matcher.group(0).replace("_", "").toUpperCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
+    }
 
     /**
      * ${}参数替换工具
