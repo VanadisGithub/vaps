@@ -1,4 +1,4 @@
-package com.vanadis.vap.controller;
+package com.vanadis.vap.controller.test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

@@ -18,10 +18,10 @@ import java.util.List;
  * @description:
  * @author: Created by 遥远 on 2019-01-26 15:24
  */
-@Api("淘宝")
+@Api("生活")
 @RestController
-@RequestMapping("taobao")
-public class TaobaoController {
+@RequestMapping("life")
+public class LifeController {
 
     @Autowired
     private TaobaoService taobaoService;

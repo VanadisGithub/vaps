@@ -71,7 +71,7 @@ public class VapCodeGenerator {
     /**
      * 需要生成的表名
      */
-    private String tableNames = "data_report_nation_scale_mix_201901_201906,data_report_prod__cate_lv1_rank_201901_201906,data_report_prod__channel_rank_201901_201906,data_report_prod_hot_comment_rank_201901_201906,data_report__inv_healthy_valuation_m_201901_201906,data_report__publi_rank_201901_201906";
+    private String tableNames = "dt_tag_merge_history,dt_tag_merge_rel";
 
     /**
      * 数据库配置
@@ -79,16 +79,22 @@ public class VapCodeGenerator {
     private static DataSourceConfig dsc = new DataSourceConfig() {{
 
         //中金易云
-        setDriverName("com.mysql.jdbc.Driver");
-        setUrl("jdbc:mysql://drdsfacb457dx41ipublic.drds.aliyuncs.com:3306/zjyy_distr_stat");
-        setUsername("zjyy_distr_stat");
-        setPassword("Ko5QU1HQscmBiBY2");
+//        setDriverName("com.mysql.jdbc.Driver");
+//        setUrl("jdbc:mysql://drdsfacb457dx41ipublic.drds.aliyuncs.com:3306/zjyy_distr_stat");
+//        setUsername("zjyy_distr_stat");
+//        setPassword("Ko5QU1HQscmBiBY2");
 
         // 福建移动
 //        setDriverName("oracle.jdbc.driver.OracleDriver");
 //        setUrl("jdbc:oracle:thin:@172.16.8.121:1521:dtstack");
 //        setUsername("mobile");
 //        setPassword("abc123");
+
+        //智慧标签
+        setDriverName("com.mysql.jdbc.Driver");
+        setUrl("jdbc:mysql://172.16.8.110:3306/dt_label?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false");
+        setUsername("dtstack");
+        setPassword("abc123");
 
     }};
 

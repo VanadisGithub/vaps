@@ -1,4 +1,4 @@
-package com.vanadis.vap.controller;
+package com.vanadis.vap.controller.test;
 
 import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;

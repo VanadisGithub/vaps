@@ -1,7 +1,5 @@
 package com.vanadis.proxy.common;
 
-import lombok.Data;
-
 /**
  * @description:
  * @author: Created by 遥远 on 2019-05-11 10:07

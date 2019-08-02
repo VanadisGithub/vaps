@@ -1,4 +1,4 @@
-package com.vanadis.vap.controller;
+package com.vanadis.vap.controller.test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -40,22 +40,4 @@ public class TestController {
         return context;
     }
 
-    @ApiOperation(value = "测试")
-    @ApiImplicitParam(name = "context", value = "123")
-    @GetMapping("test")
-    public String test(@RequestParam(required = false) String context) {
-        return "服务通！";
-    }
-
-    @ApiOperation(value = "发送邮件")
-    @ApiImplicitParam(name = "context", value = "123")
-    @GetMapping("hystrix")
-    public String hystrix(@RequestParam(required = false) String context) {
-        try {
-            Thread.sleep(5000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "hystrix!";
-    }
 }
