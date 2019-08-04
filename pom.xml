@@ -9,11 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>box</module>
-        <module>config</module>
         <module>vap</module>
-        <module>lang</module>
-        <module>proxy</module>
+        <module>vap-lang</module>
+        <module>vap-proxy</module>
     </modules>
 
     <packaging>pom</packaging>
