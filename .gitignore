@@ -28,7 +28,7 @@
 .vscode/
 
 **/.settings/*
-*/target/*
+**/target/*
 */.svn/*
 */.classpath
 */.project
