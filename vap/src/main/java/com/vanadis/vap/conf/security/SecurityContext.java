@@ -11,4 +11,5 @@ public class SecurityContext {
     public static User getUser() {
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
+
 }

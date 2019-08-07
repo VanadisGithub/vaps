@@ -14,6 +14,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new User(username, "1");
+        User user = new User(username, "1");
+        System.out.println("这里是查询权限");
+        return user;
     }
 }

@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.vanadis.lang.String.Strings;
+import com.vanadis.lang.String.StringUtils;
 import com.vanadis.lang.http.HttpUtils;
 import com.vanadis.vap.object.taobao.TaoBaoCoupon;
 import com.vanadis.vap.object.taobao.TaobaoBuyUrl;
@@ -28,7 +28,7 @@ public class TaobaoService {
      * @return
      */
     public List<TaobaoBuyUrl> coupon(String taobaoUrl) {
-        String id = Strings.urlGetId(taobaoUrl);
+        String id = StringUtils.urlGetId(taobaoUrl);
 
         String activityUrl = "https://detailskip.taobao.com/service/getData/1/p1/item/detail/sib.htm?itemId=" + id + "&callback=onSibRequestSuccess&modules=couponActivity";
 
@@ -37,7 +37,7 @@ public class TaobaoService {
         String resultStr = HttpUtils.get(activityUrl, headerMap, null);
 
         String rgex = "onSibRequestSuccess\\((.*?)\\);";
-        JSONObject data = JSONObject.parseObject(Strings.getSubUtilSimple(resultStr, rgex));
+        JSONObject data = JSONObject.parseObject(StringUtils.getSubUtilSimple(resultStr, rgex));
         JSONArray couponList = data.getJSONObject("data").getJSONObject("couponActivity").getJSONObject("coupon").getJSONArray("couponList");
 
         List<TaoBaoCoupon> taoBaoCoupons = Lists.newArrayList();
