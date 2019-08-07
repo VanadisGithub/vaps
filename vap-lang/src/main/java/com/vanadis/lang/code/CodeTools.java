@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.vanadis.lang.code.object.MethodObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -33,7 +32,7 @@ import java.util.Properties;
  * @author: 遥远
  * @create: 2019-06-28 15:14
  */
-public class VapCodeGenerator {
+public class CodeTools {
 
     private String authName = "遥远";
 
@@ -99,7 +98,7 @@ public class VapCodeGenerator {
     }};
 
     public static void main(String[] args) throws Exception {
-        new VapCodeGenerator()
+        new CodeTools()
 //                .setCodePath(scanner("项目路径"))
 //                .setPackageName(scanner("包名(com.xxx.xxx)"))
 //                .setFileNames(scanner("文件名，多个英文逗号分割").split(","))
@@ -113,7 +112,7 @@ public class VapCodeGenerator {
      * @return
      * @throws Exception
      */
-    private VapCodeGenerator runService() throws Exception {
+    private CodeTools runService() throws Exception {
 
         for (String fileName : fileNames) {
 
@@ -236,7 +235,7 @@ public class VapCodeGenerator {
      *
      * @return
      */
-    private VapCodeGenerator runEntity() {
+    private CodeTools runEntity() {
 
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -317,57 +316,80 @@ public class VapCodeGenerator {
         return this;
     }
 
-    public VapCodeGenerator setAuthName(String authName) {
+    public CodeTools setAuthName(String authName) {
         this.authName = authName;
         return this;
     }
 
-    public VapCodeGenerator setUserDir(String userDir) {
+    public CodeTools setUserDir(String userDir) {
         this.userDir = userDir;
         return this;
     }
 
-    public VapCodeGenerator setCodePath(String codePath) {
+    public CodeTools setCodePath(String codePath) {
         this.codePath = codePath;
         return this;
     }
 
-    public VapCodeGenerator setPackageName(String packageName) {
+    public CodeTools setPackageName(String packageName) {
         this.packageName = packageName;
         return this;
     }
 
-    public VapCodeGenerator setFileNames(String[] fileNames) {
+    public CodeTools setFileNames(String[] fileNames) {
         this.fileNames = fileNames;
         return this;
     }
 
-    public VapCodeGenerator setTargetPath(String targetPath) {
+    public CodeTools setTargetPath(String targetPath) {
         this.targetPath = targetPath;
         return this;
     }
 
-    public VapCodeGenerator setTemplateDir(String templateDir) {
+    public CodeTools setTemplateDir(String templateDir) {
         this.templateDir = templateDir;
         return this;
     }
 
-    public VapCodeGenerator setTemplatePath(String templatePath) {
+    public CodeTools setTemplatePath(String templatePath) {
         this.templatePath = templatePath;
         return this;
     }
 
-    public VapCodeGenerator setEngine(VelocityEngine engine) {
+    public CodeTools setEngine(VelocityEngine engine) {
         this.engine = engine;
         return this;
     }
 
-    public VapCodeGenerator setTableNames(String tableNames) {
+    public CodeTools setTableNames(String tableNames) {
         this.tableNames = tableNames;
         return this;
     }
 
     public static void setDsc(DataSourceConfig dsc) {
-        VapCodeGenerator.dsc = dsc;
+        CodeTools.dsc = dsc;
+    }
+
+    public class MethodObject {
+
+        private String returnClass;
+        private String methodName;
+
+        public String getReturnClass() {
+            return returnClass;
+        }
+
+        public void setReturnClass(String returnClass) {
+            this.returnClass = returnClass;
+        }
+
+        public String getMethodName() {
+            return methodName;
+        }
+
+        public void setMethodName(String methodName) {
+            this.methodName = methodName;
+        }
+
     }
 }

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author yaoyuan
  */
-public class Strings {
+public class StringUtils {
 
     private static String HOST_PATTERN = "(http://|https://)?([^/]*)";
 

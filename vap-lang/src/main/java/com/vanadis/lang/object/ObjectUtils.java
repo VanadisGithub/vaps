@@ -13,7 +13,7 @@ import java.util.Optional;
  * @create: 2019-07-25 11:34
  */
 @Slf4j
-public class Objects {
+public class ObjectUtils {
 
     /**
      * 获取当前对象属性的值 Integer

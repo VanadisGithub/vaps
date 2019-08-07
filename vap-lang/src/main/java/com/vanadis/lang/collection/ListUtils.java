@@ -1,7 +1,7 @@
 package com.vanadis.lang.collection;
 
 import com.google.common.base.Strings;
-import com.vanadis.lang.object.Objects;
+import com.vanadis.lang.object.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author: 遥远
  * @create: 2019-07-25 13:48
  */
-public class Lists {
+public class ListUtils {
 
     /**
      * 根据字段排序
@@ -39,8 +39,8 @@ public class Lists {
                 return 1;
             }
 
-            Object obj1 = Objects.invokeGet(o1, fieldName);
-            Object obj2 = Objects.invokeGet(o2, fieldName);
+            Object obj1 = ObjectUtils.invokeGet(o1, fieldName);
+            Object obj2 = ObjectUtils.invokeGet(o2, fieldName);
 
             if (obj1 == null && obj2 == null) {
                 return 0;

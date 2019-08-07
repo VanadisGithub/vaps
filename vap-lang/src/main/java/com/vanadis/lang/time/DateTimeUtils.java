@@ -14,7 +14,7 @@ import java.util.Date;
  * @author: 遥远
  * @create: 2019-08-05 14:32
  */
-public class Times {
+public class DateTimeUtils {
 
     public final static String YEAR = "yyyy";
 
@@ -27,8 +27,9 @@ public class Times {
     public final static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd hh:mm:ss";
 
     public static void main(String[] args) {
-        System.out.println(Times.formatTime(LocalDateTime.now(), YYYY_MM_DD_HH_MM_SS));
-        System.out.println(Times.convertStrToLDT("2019-08-05 02:43:11", YYYY_MM_DD_HH_MM_SS));
+
+        System.out.println(DateTimeUtils.formatTime(LocalDateTime.now(), YYYY_MM_DD_HH_MM_SS));
+        System.out.println(DateTimeUtils.convertStrToLDT("2019-08-05 02:43:11", YYYY_MM_DD_HH_MM_SS));
     }
 
     /**

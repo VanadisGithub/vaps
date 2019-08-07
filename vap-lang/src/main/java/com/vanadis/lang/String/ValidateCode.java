@@ -132,7 +132,7 @@ public class ValidateCode {
         g.fillRect(0, 0, width, height);
         // 创建字体,可以修改为其它的
         Font font = new Font("Fixedsys", Font.PLAIN, fontHeight);
-        //Font font = new Font("Times New Roman", Font.ROMAN_BASELINE, fontHeight);
+        //Font font = new Font("DateTimeUtils New Roman", Font.ROMAN_BASELINE, fontHeight);
         g.setFont(font);
 
         for (int i = 0; i < lineCount; i++) {
