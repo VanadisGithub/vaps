@@ -1,4 +1,4 @@
-package com.vanadis.vap.conf;
+package com.vanadis.vap.conf.springboot;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
  */
 @Slf4j
 @Configuration
-public class AppStartConf implements ApplicationListener<WebServerInitializedEvent> {
+public class SpringbootStartConf implements ApplicationListener<WebServerInitializedEvent> {
 
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
@@ -26,4 +26,5 @@ public class AppStartConf implements ApplicationListener<WebServerInitializedEve
             e.printStackTrace();
         }
     }
+    
 }

@@ -1,4 +1,4 @@
-package com.vanadis.vap.conf;
+package com.vanadis.vap.conf.springboot;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableCaching
-public class CacheConf extends CachingConfigurerSupport {
+public class SpringbootCacheConf extends CachingConfigurerSupport {
 
     /**
      * key生成策略

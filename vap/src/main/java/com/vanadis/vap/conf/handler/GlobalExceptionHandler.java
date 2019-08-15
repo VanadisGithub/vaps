@@ -17,4 +17,5 @@ public class GlobalExceptionHandler {
         log.error("全局系统异常:", e);
         return "全局系统异常！";
     }
+
 }

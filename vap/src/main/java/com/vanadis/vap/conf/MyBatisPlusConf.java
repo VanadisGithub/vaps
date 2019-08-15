@@ -20,26 +20,19 @@ public class MyBatisPlusConf {
      * @return
      */
     @Bean
-    public VapMetaObjectHandler metaObjectHandler() {
-        return new VapMetaObjectHandler();
-    }
+    public MetaObjectHandler metaObjectHandler() {
+        return new MetaObjectHandler() {
+            @Override
+            public void insertFill(MetaObject metaObject) {
+                setFieldValByName("createTime", new Date(), metaObject);
+                setFieldValByName("updateTime", new Date(), metaObject);
+            }
 
-    /**
-     * 元对象字段填充控制器
-     *
-     * @return
-     */
-    class VapMetaObjectHandler implements MetaObjectHandler {
-        @Override
-        public void insertFill(MetaObject metaObject) {
-            setFieldValByName("createTime", new Date(), metaObject);
-            setFieldValByName("updateTime", new Date(), metaObject);
-        }
-
-        @Override
-        public void updateFill(MetaObject metaObject) {
-            setFieldValByName("updateTime", new Date(), metaObject);
-        }
+            @Override
+            public void updateFill(MetaObject metaObject) {
+                setFieldValByName("updateTime", new Date(), metaObject);
+            }
+        };
     }
 
 }

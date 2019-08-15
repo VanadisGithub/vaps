@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @description:
@@ -27,19 +27,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailService)
-                .passwordEncoder(new PasswordEncoder() {
-                    @Override
-                    public String encode(CharSequence charSequence) {
-                        log.info("密码加密");
-                        return charSequence.toString();
-                    }
-
-                    @Override
-                    public boolean matches(CharSequence charSequence, String s) {
-                        log.info("密码匹配");
-                        return s.equals(charSequence.toString());
-                    }
-                });
+                .passwordEncoder(new BCryptPasswordEncoder());//加密逻辑，可以自定义
     }
 
     @Override
@@ -48,7 +36,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/index").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin()//默认添加了UsernamePasswordAuthenticationFilter
+                .and().formLogin()//默认添加了 UsernamePasswordAuthenticationFilter
                 .and().logout().permitAll()
                 .and().csrf().disable();
 
