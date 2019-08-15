@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
  * @description: 缓存配置
  * @author: Created by 遥远 on 2019-03-22 17:53
  */
-@Configuration
 @EnableCaching
+@Configuration
 public class SpringbootCacheConf extends CachingConfigurerSupport {
 
     /**

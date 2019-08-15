@@ -15,12 +15,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @EnableTransactionManagement
 @MapperScan("com.vanadis.proxy.mapper")
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringBootApplication
 public class VapApplication {
 
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(VapApplication.class);
         SpringApplication.run(VapApplication.class, args);
     }
 

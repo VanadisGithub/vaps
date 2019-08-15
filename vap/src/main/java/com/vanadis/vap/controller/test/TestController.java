@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  * @author: Created by 遥远 on 2019-01-26 15:24
  */
+@Api("测试")
 @RestController
-@Api(tags = "TestController", description = "测试")
 @RequestMapping("test")
 public class TestController {
 
@@ -40,4 +40,8 @@ public class TestController {
         return context;
     }
 
+
 }
+
+
+

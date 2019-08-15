@@ -21,11 +21,11 @@ public abstract class BaseTask {
     public void start() {
         try {
             Long start = System.currentTimeMillis();
-            log.info("[Vanadis.Task][{}] start ...", taskName);
+            log.info("[Vap.Task][{}] start ...", taskName);
             process();
-            log.info("[Vanadis.Task][{}] end , spend time : {}s", taskName, (System.currentTimeMillis() - start) / 1000.000);
+            log.info("[Vap.Task][{}] end , spend time : {}s", taskName, (System.currentTimeMillis() - start) / 1000.000);
         } catch (Exception e) {
-            log.error("[Vanadis.Task][{}] error !!! message : {}", taskName, e.getMessage(), e);
+            log.error("[Vap.Task][{}] error !!! message : {}", taskName, e.getMessage(), e);
         }
     }
 

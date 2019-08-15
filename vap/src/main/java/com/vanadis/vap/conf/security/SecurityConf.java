@@ -35,7 +35,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/index").permitAll()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
                 .and().formLogin()//默认添加了 UsernamePasswordAuthenticationFilter
                 .and().logout().permitAll()
                 .and().csrf().disable();

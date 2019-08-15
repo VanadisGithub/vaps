@@ -23,15 +23,15 @@ public class RedisMsgConfig {
     }
 
     @Bean
-    public RedisReceiver redisReceiver(CountDownLatch latch) {
-        return new RedisReceiver(latch);
+    public RedisMsgReceiver redisReceiver(CountDownLatch latch) {
+        return new RedisMsgReceiver(latch);
     }
 
     @Bean
     public RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        container.addMessageListener(listenerAdapter, new PatternTopic("test"));
+        container.addMessageListener(listenerAdapter, new PatternTopic("theme"));
         return container;
     }
 
@@ -39,8 +39,8 @@ public class RedisMsgConfig {
      * 消息监听器适配器，绑定消息处理器，利用反射技术调用消息处理器的业务方法
      */
     @Bean
-    public MessageListenerAdapter listenerAdapter(RedisReceiver redisReceiver) {
-        return new MessageListenerAdapter(redisReceiver, "receiveMessage");
+    public MessageListenerAdapter listenerAdapter(RedisMsgReceiver redisMsgReceiver) {
+        return new MessageListenerAdapter(redisMsgReceiver, "receiveMessage");
     }
 
     /**

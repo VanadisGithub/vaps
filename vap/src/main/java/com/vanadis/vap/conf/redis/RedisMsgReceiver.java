@@ -11,12 +11,12 @@ import java.util.concurrent.CountDownLatch;
  * @author: Created by 遥远 on 2019-03-23 00:13
  */
 @Slf4j
-public class RedisReceiver {
+public class RedisMsgReceiver {
 
     private CountDownLatch latch;
 
     @Autowired
-    public RedisReceiver(CountDownLatch latch) {
+    public RedisMsgReceiver(CountDownLatch latch) {
         this.latch = latch;
     }
 
@@ -26,7 +26,7 @@ public class RedisReceiver {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info(Strings.lenientFormat("接收到消息%s", message));
+        log.info(Strings.lenientFormat("[vap.redis.订阅]接收消息:%s", message));
         latch.countDown();
     }
 }

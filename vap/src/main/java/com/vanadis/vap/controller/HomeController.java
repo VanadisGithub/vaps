@@ -1,6 +1,7 @@
 package com.vanadis.vap.controller;
 
 import com.vanadis.vap.conf.security.User;
+import com.vanadis.vap.mapper.BackUserMapper;
 import com.vanadis.vap.service.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class HomeController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BackUserMapper backUserMapper;
 
     @PreAuthorize("hasAuthority('abc')")
     @GetMapping("test")

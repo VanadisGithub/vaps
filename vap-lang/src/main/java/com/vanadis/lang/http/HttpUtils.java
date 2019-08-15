@@ -86,7 +86,7 @@ public class HttpUtils {
         try {
             HttpResponse response = httpClient.execute(http);
             int statusCode = response.getStatusLine().getStatusCode();
-            log.info("[Vanadis.HttpUtils.{}] {} {}", http.getMethod(), http.getURI(), statusCode);
+            log.info("[Vap.HttpUtils.{}] {} {}", http.getMethod(), http.getURI(), statusCode);
 
             if (statusCode == HttpStatus.SC_OK) {
                 return EntityUtils.toString(response.getEntity(), "utf-8");

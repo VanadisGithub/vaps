@@ -1,4 +1,4 @@
-package com.vanadis.vap.conf.aspect;
+package com.vanadis.vap.conf.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -21,9 +21,9 @@ import java.util.Arrays;
 @Slf4j
 @Aspect
 @Component
-public class WebLogAspect {
+public class WebLogAop {
 
-    @Pointcut("execution(public * com.vanadis.vap.controller.*.*(..))")
+    @Pointcut("execution(public * com.vanadis.vap.controller..*.*(..))")
     public void webLog() {
     }
 
@@ -35,7 +35,7 @@ public class WebLogAspect {
         HttpServletRequest request = attributes.getRequest();
 
         // 记录下请求内容
-        log.info("[Vanadis.Request] {URL : {}, HTTP_METHOD : {}, IP : {}, CLASS_METHOD : {}.{}, ARGS : {}}",
+        log.info("[Vap.Request] {URL : {}, HTTP_METHOD : {}, IP : {}, CLASS_METHOD : {}.{}, ARGS : {}}",
                 request.getRequestURL().toString(),
                 request.getMethod(),
                 request.getRemoteAddr(),
@@ -48,6 +48,6 @@ public class WebLogAspect {
     @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret) {
         // 处理完请求，返回内容
-        log.info("[Vanadis.Response] : {}", ret);
+        log.info("[Vap.Response] : {}", ret);
     }
 }
