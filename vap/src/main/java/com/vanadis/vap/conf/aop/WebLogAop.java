@@ -27,14 +27,17 @@ public class WebLogAop {
     public void webLog() {
     }
 
+    /**
+     * 接收到请求，记录请求内容
+     *
+     * @param joinPoint
+     */
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) {
 
-        // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
-        // 记录下请求内容
         log.info("[Vap.Request] {URL : {}, HTTP_METHOD : {}, IP : {}, CLASS_METHOD : {}.{}, ARGS : {}}",
                 request.getRequestURL().toString(),
                 request.getMethod(),
@@ -45,9 +48,13 @@ public class WebLogAop {
 
     }
 
+    /**
+     * 处理完请求，返回内容
+     *
+     * @param ret
+     */
     @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret) {
-        // 处理完请求，返回内容
         log.info("[Vap.Response] : {}", ret);
     }
 }

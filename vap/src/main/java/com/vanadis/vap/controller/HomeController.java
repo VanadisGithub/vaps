@@ -1,7 +1,9 @@
 package com.vanadis.vap.controller;
 
+import com.vanadis.vap.common.VapAnnotation;
 import com.vanadis.vap.conf.security.User;
 import com.vanadis.vap.mapper.BackUserMapper;
+import com.vanadis.vap.object.TestModel;
 import com.vanadis.vap.service.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,11 @@ public class HomeController {
         userService.removeById(user);
     }
 
+    @VapAnnotation
+    @GetMapping("annotation")
+    public TestModel annotation() {
+        return new TestModel("123456");
+    }
 
 }
 

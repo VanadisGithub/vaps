@@ -1,6 +1,7 @@
 package com.vanadis.vap.conf.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.vanadis.vap.common.VapAnnotation;
 import com.vanadis.vap.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UserService userService;
 
     @Override
+    @VapAnnotation
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.debug("[security]获取用户信息");
         if (userService.count() == 0) {
