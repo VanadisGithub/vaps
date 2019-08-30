@@ -1,5 +1,8 @@
 package com.vanadis.lang.String;
 
+import com.google.common.collect.Lists;
+
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -13,6 +16,15 @@ public class StringUtils {
     private static String HOST_PATTERN = "(http://|https://)?([^/]*)";
 
     private static String ID_PATTERN = "[?&]id=(\\d+)";
+
+    public static void main(String[] args) {
+        String test = ".abc";
+        String test1 = "abc";
+        List<String> list = Lists.newArrayList(test,test1);
+        System.out.println(list.stream().filter(l -> l.startsWith(".")).findFirst().get());
+        System.out.println(test.startsWith("."));
+        System.out.println(test.startsWith("1"));
+    }
 
     /**
      * url 获取host

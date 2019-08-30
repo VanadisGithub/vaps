@@ -6,8 +6,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.vanadis.lang.String.StringUtils;
 import com.vanadis.lang.http.HttpUtils;
-import com.vanadis.vap.object.taobao.TaoBaoCoupon;
-import com.vanadis.vap.object.taobao.TaobaoBuyUrl;
+import com.vanadis.vap.object.life.taobao.TaoBaoCoupon;
+import com.vanadis.vap.object.life.taobao.TaobaoBuyUrl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

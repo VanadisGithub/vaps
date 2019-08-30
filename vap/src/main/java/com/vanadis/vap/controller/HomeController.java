@@ -39,7 +39,7 @@ public class HomeController {
     @VapAnnotation
     @GetMapping("annotation")
     public TestModel annotation() {
-        return new TestModel("123456");
+        return new TestModel();
     }
 
 }

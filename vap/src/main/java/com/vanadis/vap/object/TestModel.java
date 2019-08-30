@@ -1,6 +1,8 @@
 package com.vanadis.vap.object;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * @create: 2019-08-26 00:41
  */
 @Data
+@NoArgsConstructor
+@Accessors(chain = true)
 public class TestModel {
 
     //    @VapJsonSerialize(floatNum = 3)
@@ -25,12 +29,5 @@ public class TestModel {
     private Boolean b2;
 
     private List<String> list1;
-
-    public TestModel() {
-    }
-
-    public TestModel(String string) {
-        this.string = string;
-    }
 
 }

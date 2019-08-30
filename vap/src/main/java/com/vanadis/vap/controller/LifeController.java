@@ -1,6 +1,6 @@
 package com.vanadis.vap.controller;
 
-import com.vanadis.vap.object.taobao.TaobaoBuyUrl;
+import com.vanadis.vap.object.life.taobao.TaobaoBuyUrl;
 import com.vanadis.vap.service.TaobaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

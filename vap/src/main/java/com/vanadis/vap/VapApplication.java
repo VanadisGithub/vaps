@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //@EnableEurekaClient
 @EnableScheduling
 @EnableTransactionManagement
-@MapperScan("com.vanadis.proxy.mapper")
+@MapperScan("com.vanadis.vap.mapper")
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringBootApplication
 public class VapApplication {

@@ -1,4 +1,4 @@
-package com.vanadis.vap.object.taobao;
+package com.vanadis.vap.object.life.taobao;
 
 import lombok.Data;
 

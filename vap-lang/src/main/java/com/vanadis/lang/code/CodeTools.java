@@ -1,5 +1,6 @@
 package com.vanadis.lang.code;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -9,6 +10,8 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lombok.Data;
+import lombok.experimental.Accessors;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -32,6 +35,8 @@ import java.util.Properties;
  * @author: 遥远
  * @create: 2019-06-28 15:14
  */
+@Data
+@Accessors(chain = true)
 public class CodeTools {
 
     private String authName = "遥远";
@@ -68,11 +73,6 @@ public class CodeTools {
     private VelocityEngine engine = newVelocityEngine();
 
     /**
-     * 需要生成的表名
-     */
-    private String tableNames = "dt_tag_merge_history,dt_tag_merge_rel";
-
-    /**
      * 数据库配置
      */
     private static DataSourceConfig dsc = new DataSourceConfig() {{
@@ -90,20 +90,36 @@ public class CodeTools {
 //        setPassword("abc123");
 
         //智慧标签
+//        setDriverName("com.mysql.jdbc.Driver");
+//        setUrl("jdbc:mysql://172.16.8.110:3306/dt_label?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false");
+//        setUsername("dtstack");
+//        setPassword("abc123");
+
+        //智慧标签
         setDriverName("com.mysql.jdbc.Driver");
-        setUrl("jdbc:mysql://172.16.8.110:3306/dt_label?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false");
+        setUrl("jdbc:mysql://172.16.8.110:3306/dt_mdm?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false");
         setUsername("dtstack");
         setPassword("abc123");
 
     }};
 
+    /**
+     * 需要生成的表名
+     */
+    private String tableNames = "dt_sys_perms_data";
+
     public static void main(String[] args) throws Exception {
-        new CodeTools()
+//        new CodeTools()
+//                .runEntity();
 //                .setCodePath(scanner("项目路径"))
 //                .setPackageName(scanner("包名(com.xxx.xxx)"))
 //                .setFileNames(scanner("文件名，多个英文逗号分割").split(","))
 //                .runService();
-                .runEntity();
+        List a = Lists.newArrayList("a", "b", "c");
+        List b = Lists.newArrayList("b", "c","d");
+        System.out.println(a.removeAll(b));
+//        a = a.replaceAll(b);
+        System.out.println(JSON.toJSON(a));
     }
 
     /**
@@ -316,80 +332,11 @@ public class CodeTools {
         return this;
     }
 
-    public CodeTools setAuthName(String authName) {
-        this.authName = authName;
-        return this;
-    }
-
-    public CodeTools setUserDir(String userDir) {
-        this.userDir = userDir;
-        return this;
-    }
-
-    public CodeTools setCodePath(String codePath) {
-        this.codePath = codePath;
-        return this;
-    }
-
-    public CodeTools setPackageName(String packageName) {
-        this.packageName = packageName;
-        return this;
-    }
-
-    public CodeTools setFileNames(String[] fileNames) {
-        this.fileNames = fileNames;
-        return this;
-    }
-
-    public CodeTools setTargetPath(String targetPath) {
-        this.targetPath = targetPath;
-        return this;
-    }
-
-    public CodeTools setTemplateDir(String templateDir) {
-        this.templateDir = templateDir;
-        return this;
-    }
-
-    public CodeTools setTemplatePath(String templatePath) {
-        this.templatePath = templatePath;
-        return this;
-    }
-
-    public CodeTools setEngine(VelocityEngine engine) {
-        this.engine = engine;
-        return this;
-    }
-
-    public CodeTools setTableNames(String tableNames) {
-        this.tableNames = tableNames;
-        return this;
-    }
-
-    public static void setDsc(DataSourceConfig dsc) {
-        CodeTools.dsc = dsc;
-    }
-
+    @Data
     public class MethodObject {
 
         private String returnClass;
         private String methodName;
-
-        public String getReturnClass() {
-            return returnClass;
-        }
-
-        public void setReturnClass(String returnClass) {
-            this.returnClass = returnClass;
-        }
-
-        public String getMethodName() {
-            return methodName;
-        }
-
-        public void setMethodName(String methodName) {
-            this.methodName = methodName;
-        }
 
     }
 }
