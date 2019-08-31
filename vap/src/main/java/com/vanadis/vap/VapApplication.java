@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan("com.vanadis.vap.mapper")
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@SpringBootApplication
+@SpringBootApplication()
 public class VapApplication {
 
     public static void main(String[] args) {

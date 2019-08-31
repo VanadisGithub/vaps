@@ -1,8 +1,8 @@
 package com.vanadis.proxy.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.google.common.base.Strings;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.mysql.cj.util.StringUtils;
 import com.vanadis.lang.http.HttpUtils;
 import com.vanadis.proxy.common.Constant;
 import com.vanadis.proxy.manager.ProxyManager;
@@ -38,7 +38,7 @@ public class ProxyService {
         proxyList.forEach(proxy -> pool.execute(() -> {
             HttpHost proxyHost = new HttpHost(proxy.getIp(), Integer.valueOf(proxy.getPort()));
             String resultStr = HttpUtils.visit(Constant.VISIT_URL, proxyHost);
-            if (StringUtils.isNullOrEmpty(resultStr)) {
+            if (Strings.isNullOrEmpty(resultStr)) {
                 proxyMapper.addErrorNum(proxy);
             } else {
                 proxyMapper.subErrorNum(proxy);
