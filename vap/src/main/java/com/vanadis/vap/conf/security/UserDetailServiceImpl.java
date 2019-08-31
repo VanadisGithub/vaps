@@ -32,6 +32,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
         }
         User user = userService.getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));
         user.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList("abc"));
-        return user;
+        return new User("root", new BCryptPasswordEncoder().encode("123"));
     }
 }

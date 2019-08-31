@@ -1,5 +1,9 @@
 server:
   port: 8022
+  servlet:
+    session:
+      cookie:
+        name: VAPSESSION
 
 spring:
   application:
@@ -36,6 +40,22 @@ spring:
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true
 
+auth-server: http://localhost:9999
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: 12345
+      accessTokenUri: ${auth-server}/oauth/token
+      userAuthorizationUri: ${auth-server}/oauth/authorize
+    resource:
+      userInfoUri: ${auth-server}/user/me
+
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #启用sql日志
+
+#logging:
+#  level:
+#    root: debug

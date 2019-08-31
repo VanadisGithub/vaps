@@ -1,8 +1,7 @@
-package com.vanadis.vap.conf.security;
+package com.vanadis.auth.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @description:
@@ -18,7 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Slf4j
 @Configuration
-@EnableOAuth2Sso
 @EnableWebSecurity
 public class SecurityConf extends WebSecurityConfigurerAdapter {
 
@@ -29,16 +28,23 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailService)
-                .passwordEncoder(new BCryptPasswordEncoder());//加密逻辑，可以自定义
+                .passwordEncoder(passwordEncoder());//加密逻辑，可以自定义
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**")
+        http
                 .authorizeRequests()
-                .antMatchers("/", "/login**").permitAll()
-                .anyRequest()
-                .authenticated();
+                .antMatchers("/login").permitAll()
+                .antMatchers("/oauth/**").permitAll()
+                .anyRequest().authenticated()
+                .and().formLogin()//默认添加了 UsernamePasswordAuthenticationFilter
+                .and().logout().permitAll();
     }
 
     /**
