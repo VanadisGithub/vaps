@@ -45,12 +45,24 @@ auth-server: http://localhost:9999
 security:
   oauth2:
     client:
-      clientId: client
-      clientSecret: 12345
-      accessTokenUri: ${auth-server}/oauth/token
-      userAuthorizationUri: ${auth-server}/oauth/authorize
-    resource:
-      userInfoUri: ${auth-server}/user/me
+      registration:
+        github:
+          client-id: 5cc157387a790c5204e1
+          client-secret: d47ea7f5340fc33118f30f691666d9956ce2bcff
+        google:
+          client-id: 594014553745-c32lehnngg6unckm5299h5hcet2lbfdo.apps.googleusercontent.com
+          client-secret: bhtfubUHtrquasO3oUjQultq
+        vap:
+          client-d: client
+          client-secret: 12345
+
+          #    client:
+          #      clientId: client
+          #      clientSecret: 12345
+          #      accessTokenUri: ${auth-server}/oauth/token
+          #      userAuthorizationUri: ${auth-server}/oauth/authorize
+          #    resource:
+          #      userInfoUri: ${auth-server}/user/me
 
 mybatis-plus:
   configuration:

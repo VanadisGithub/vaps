@@ -37,7 +37,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .secret("$2a$10$dYRcFip80f0jIKGzRGulFelK12036xWQKgajanfxT65QB4htsEXNK")
                 // client_secret
                 .authorizedGrantTypes("authorization_code")
-                .redirectUris("http://www.baidu.com", "http://127.0.0.1:8022/login", "http://192.168.199.180:8022/login", "http://192.168.199.180:8022/swagger-ui.html")
+                .redirectUris("http://www.baidu.com", "http://127.0.0.1:8022/login", "http://127.0.0.1:8022/login/oauth2/code/vap", "http://192.168.199.180:8022/login", "http://192.168.199.180:8022/swagger-ui.html")
                 .autoApprove("user_info")
                 .scopes("user_info");
     }

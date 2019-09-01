@@ -1,5 +1,6 @@
 package com.vanadis.vap.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.vanadis.vap.common.VapAnnotation;
 import com.vanadis.vap.conf.security.User;
 import com.vanadis.vap.mapper.BackUserMapper;
@@ -8,6 +9,7 @@ import com.vanadis.vap.service.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,8 +40,14 @@ public class HomeController {
 
     @VapAnnotation
     @GetMapping("annotation")
-    public TestModel annotation() {
+    public TestModel annotation(OAuth2AuthenticationToken authentication) {
+        System.out.println(JSON.toJSON(authentication));
         return new TestModel();
+    }
+
+    @GetMapping("login/oauth2/code/vap")
+    public String rallback() {
+        return "123";
     }
 
 }
