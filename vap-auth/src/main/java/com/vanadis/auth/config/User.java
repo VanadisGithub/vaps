@@ -17,8 +17,6 @@ public class User implements UserDetails {
 
     private String password;
 
-    private String userNick;
-
     private List<GrantedAuthority> authorities;
 
     public User(String username, String password) {

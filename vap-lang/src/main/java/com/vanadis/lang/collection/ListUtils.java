@@ -1,12 +1,12 @@
 package com.vanadis.lang.collection;
 
-import com.google.common.base.Strings;
-import com.vanadis.lang.object.ObjectUtils;
-
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import com.google.common.base.Strings;
+import com.vanadis.lang.object.ObjectUtils;
 
 /**
  * @program: vaps
@@ -53,14 +53,14 @@ public class ListUtils {
             }
 
             if (obj1 instanceof Integer) {
-                return ((Integer) obj1).compareTo((Integer) obj2);
+                return ((Integer)obj1).compareTo((Integer)obj2);
             } else if ((obj1 instanceof Long)) {
-                return ((Long) obj1).compareTo((Long) obj2);
+                return ((Long)obj1).compareTo((Long)obj2);
             } else if ((obj1 instanceof BigDecimal)) {
-                return ((BigDecimal) obj1).compareTo((BigDecimal) obj2);
+                return ((BigDecimal)obj1).compareTo((BigDecimal)obj2);
             } else if (obj1 instanceof Date) {
-                Long value1 = ((Date) obj1).getTime();
-                Long value2 = ((Date) obj2).getTime();
+                Long value1 = ((Date)obj1).getTime();
+                Long value2 = ((Date)obj2).getTime();
                 return value1.compareTo(value2);
             } else {
                 return obj1.toString().compareTo(obj2.toString());

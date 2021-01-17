@@ -1,5 +1,9 @@
 package com.vanadis.lang.annotation;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Objects;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -8,11 +12,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.math.NumberUtils;
-
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * @program: vaps
@@ -48,8 +47,9 @@ public class VapJsonSerializeUtil extends JsonSerializer<Object> implements Cont
     public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
         if (Objects.nonNull(o)) {
             String priceStr = String.valueOf(o);
-            if (!Strings.isNullOrEmpty(priceStr) && NumberUtils.isNumber(priceStr)) {
-                BigDecimal priceDecimal = new BigDecimal(priceStr).divide(BigDecimal.valueOf(diverse), floatNum, BigDecimal.ROUND_HALF_UP);
+            if (!Strings.isNullOrEmpty(priceStr)) {
+                BigDecimal priceDecimal = new BigDecimal(priceStr).divide(BigDecimal.valueOf(diverse), floatNum,
+                    BigDecimal.ROUND_HALF_UP);
                 jsonGenerator.writeString(priceDecimal.toString());
             }
         }

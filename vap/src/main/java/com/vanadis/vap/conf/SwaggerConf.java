@@ -21,11 +21,11 @@ public class SwaggerConf {
     @Bean
     public Docket vap() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
-                .paths(PathSelectors.regex("/.*"))
-                .build();
+            .apiInfo(apiInfo())
+            .select()
+            //.paths(Predicates.not(PathSelectors.regex("/error.*")))
+            .paths(PathSelectors.regex("/.*"))
+            .build();
     }
 
     private ApiInfo apiInfo() {

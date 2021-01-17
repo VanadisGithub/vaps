@@ -1,7 +1,9 @@
 package com.vanadis.vap.controller;
 
 import com.alibaba.fastjson.JSON;
+
 import com.vanadis.vap.common.VapAnnotation;
+import com.vanadis.vap.conf.security.SecurityContext;
 import com.vanadis.vap.conf.security.User;
 import com.vanadis.vap.mapper.BackUserMapper;
 import com.vanadis.vap.object.TestModel;
@@ -26,6 +28,11 @@ public class HomeController {
 
     @Autowired
     private BackUserMapper backUserMapper;
+
+    @GetMapping("index")
+    public User index() throws InterruptedException {
+        return SecurityContext.getUser();
+    }
 
     @PreAuthorize("hasAuthority('abc')")
     @GetMapping("test")
