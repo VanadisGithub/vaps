@@ -10,7 +10,7 @@ import org.springframework.session.web.http.HttpSessionIdResolver;
 /**
  * SpringSessionBeanConfiguration
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2020/12/29 3:12 下午
  */
 @Configuration

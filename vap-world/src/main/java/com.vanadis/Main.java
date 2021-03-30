@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 /**
  * Main
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/1/17 5:50 下午
  */
 public class Main {
@@ -25,7 +25,9 @@ public class Main {
 
         // 添加 "Hello World" 标签
         JLabel label = new JLabel("Hello World");
+        JLabel label2 = new JLabel("你好");
         frame.getContentPane().add(label);
+        frame.getContentPane().add(label2);
 
         // 显示窗口
         frame.pack();
@@ -34,6 +36,6 @@ public class Main {
 
     public static void main(String[] args) {
         // 显示应用 GUI
-        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI());
+        javax.swing.SwingUtilities.invokeLater(Main::createAndShowGUI);
     }
 }

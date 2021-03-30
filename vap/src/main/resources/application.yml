@@ -5,7 +5,10 @@ server:
       cookie:
         name: VAPSESSION
 
+auth-server: http://localhost:9999
+
 spring:
+
   application:
     name: vaps-vap
 
@@ -24,7 +27,7 @@ spring:
     password: 123456
 
   cache:
-    type: redis
+    type: none
 
   redis:
     host: 127.0.0.1
@@ -40,7 +43,8 @@ spring:
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true
 
-auth-server: http://localhost:9999
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
 
 security:
   oauth2:
@@ -68,6 +72,9 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #启用sql日志
 
-#logging:
-#  level:
-#    root: debug
+logging:
+  level:
+    root: debug
+
+  file:
+    path: ./log

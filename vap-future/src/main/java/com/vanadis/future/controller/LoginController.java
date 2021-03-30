@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * LoginController
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/1/7 9:16 下午
  */
 @Controller

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * TestInterceptor
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2020/12/29 7:18 下午
  */
 @Slf4j

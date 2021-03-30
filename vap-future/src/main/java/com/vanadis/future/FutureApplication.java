@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * FutureApplication
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2020/12/28 5:31 下午
  */
 @SpringBootApplication

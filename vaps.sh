@@ -8,7 +8,7 @@ checkUser() {
 }
 checkUser
 
-if [[ "`git co master`" =~ "Your branch is up to date with 'origin/master'" ]];
+if [[ "`git checkout master`" =~ "Your branch is up to date with 'origin/master'" ]];
 
 then
     echo '1.分支切换成功'

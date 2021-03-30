@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * VapWebMvcConf
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2020/12/29 7:23 下午
  */
 @Configuration

@@ -1,5 +1,6 @@
 package com.vanadis.vap.conf.redis;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -15,6 +16,7 @@ import java.util.concurrent.CountDownLatch;
  * @author: Created by 遥远 on 2018-10-12 19:57
  */
 @Configuration
+//@ConditionalOnProperty(name = "redis.enabled", havingValue = "true")
 public class RedisMsgConfig {
 
     @Bean

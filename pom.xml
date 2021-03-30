@@ -13,11 +13,11 @@
         <module>vap-auth</module>
         <module>vap-future</module>
         <module>vap-lang</module>
-        <module>vap-learning</module>
+        <module>vap-study</module>
         <module>vap-proxy</module>
         <module>vap-start</module>
-        <module>vap-ai</module>
         <module>vap-world</module>
+        <module>vap-netty</module>
     </modules>
 
     <packaging>pom</packaging>
