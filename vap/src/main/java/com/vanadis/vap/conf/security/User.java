@@ -24,6 +24,8 @@ public class User extends Base implements UserDetails {
 
     private String userNick;
 
+    private String phone;
+
     @Transient //Hibernate 忽略该字段映射
     @TableField(exist = false) // mybatis plus 忽略该字段
     private List<GrantedAuthority> authorities;

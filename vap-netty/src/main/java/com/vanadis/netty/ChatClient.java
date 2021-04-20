@@ -25,28 +25,26 @@ public class ChatClient {
 
     public static void main(String[] args) throws Exception {
         new Thread(() -> new ChatClient("127.0.0.1", 8080).run()).start();
-        new Thread(() -> new ChatClient("127.0.0.1", 8080).run()).start();
-        new Thread(() -> new ChatClient("127.0.0.1", 8080).run()).start();
     }
 
     public void run() {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-            Bootstrap bootstrap = new Bootstrap()
-                .group(group)
-                .channel(NioSocketChannel.class)
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public void initChannel(SocketChannel ch) {
-                        ChannelPipeline pipeline = ch.pipeline();
-                        //往pipeline链中添加一个解码器
-                        pipeline.addLast("decoder", new StringDecoder());
-                        //往pipeline链中添加一个编码器
-                        pipeline.addLast("encoder", new StringEncoder());
-                        //往pipeline链中添加自定义的handler(业务处理类)
-                        pipeline.addLast(new ChatClientHandler());
-                    }
-                });
+            Bootstrap bootstrap = new Bootstrap();
+            bootstrap.group(group);
+            bootstrap.channel(NioSocketChannel.class);
+            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel ch) {
+                    ChannelPipeline pipeline = ch.pipeline();
+                    //往pipeline链中添加一个解码器
+                    pipeline.addLast("decoder", new StringDecoder());
+                    //往pipeline链中添加一个编码器
+                    pipeline.addLast("encoder", new StringEncoder());
+                    //往pipeline链中添加自定义的handler(业务处理类)
+                    pipeline.addLast(new ChatClientHandler());
+                }
+            });
 
             ChannelFuture cf = bootstrap.connect(host, port).sync();
             Channel channel = cf.channel();

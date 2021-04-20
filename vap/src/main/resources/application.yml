@@ -3,7 +3,7 @@ server:
   servlet:
     session:
       cookie:
-        name: VAPSESSION
+        name: VAP-SESSION
 
 auth-server: http://localhost:9999
 
@@ -44,9 +44,10 @@ spring:
     properties.mail.smtp.starttls.required: true
 
   autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+    exclude:
 
 security:
+  type: oauth
   oauth2:
     client:
       registration:
@@ -74,7 +75,7 @@ mybatis-plus:
 
 logging:
   level:
-    root: debug
+    root: info
 
   file:
     path: ./log

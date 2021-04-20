@@ -14,7 +14,7 @@ public class JavaNativeInterfaceTest {
 
     public static void main(String[] args) {
         HelloInter INSTANCE =
-            Native.loadLibrary(
+            Native.load(
                 Platform.isWindows() ? "msvcrt" : "c",
                 HelloInter.class);
         INSTANCE.printf("Hello, World\n");

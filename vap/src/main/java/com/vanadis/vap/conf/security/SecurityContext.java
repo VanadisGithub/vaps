@@ -1,6 +1,7 @@
 package com.vanadis.vap.conf.security;
 
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 
 /**
  * @description:
@@ -8,9 +9,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class SecurityContext {
 
-    public static User getUser() {
+    public static DefaultOAuth2User getUser() {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return (DefaultOAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 }
