@@ -1,5 +1,6 @@
 package com.vanadis.start.conf;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -22,15 +23,15 @@ public class SwaggerConf {
         return new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(apiInfo())
             .select()
-            //.paths(Predicates.not(PathSelectors.regex("/error.*")))
-            .paths(PathSelectors.regex("/.*"))
+            .paths(Predicates.not(PathSelectors.regex("/error.*|/actuator.*")))
+            //.paths(PathSelectors.regex("/.*"))
             .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Vanadis'Cup")
-                .description("Vanadis'Cup")
+                .title("Vanadis'API-DOCs")
+                .description("Vanadis'API-DOCs")
                 .termsOfServiceUrl("https://github.com/VanadisGithub/vap")
                 .version("1.0").build();
     }

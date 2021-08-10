@@ -18,11 +18,12 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
  * @author: Created by 遥远 on 2019-03-21 17:43
  */
 @Slf4j
-@Configuration
+//@Configuration
 @EnableWebSecurity
 public class SecurityConf extends WebSecurityConfigurerAdapter {
 
-    private static final String[] WHITE_LIST = {"/page"};
+    //private static final String[] WHITE_LIST = {"/page"};
+    private static final String[] WHITE_LIST = {"/**"};
 
     @Autowired
     private UserDetailServiceImpl userDetailService;

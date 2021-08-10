@@ -1,0 +1,173 @@
+#--- 【发布域】【全局】系统配置 start ---
+#【发布域】【全局】应用服务端口，例如：7001
+server.port=${dataphin.publishing.server.port}
+#【发布域】【全局】应用管理服务端口，例如：7002
+management.server.port=${dataphin.publishing.management.server.port}
+#【发布域】【全局】应用管理服务路径，例如：/
+management.endpoints.web.base-path=${dataphin.publishing.management.endpoints.web.basePath}
+#【发布域】【全局】应用管理服务默认状态，例如：false
+management.endpoints.enabled-by-default=false
+#【发布域】【全局】应用管理服务健康检查状态，例如：true
+management.endpoint.health.enabled=true
+#【发布域】【全局】应用日志名称，例如：dataphin-k8s-publishing
+app.name=${dataphin.publishing.app.name}
+app_name=${dataphin.publishing.app.name}
+#【发布域】【全局】应用日志级别，例如：INFO
+log.level=${dataphin.publishing.log.level}
+#【发布域】【全局】应用日志输入路径，例如：./
+log.path=${dataphin.publishing.log.path}
+#【发布域】【全局】应用名称
+spring.application.name=${dataphin.publishing.app.name}
+#【发布域】【全局】应用名称
+spring.profiles.active=${dataphin.publishing.spring.profiles.active}
+#【发布域】【全局】Spring自动注入排除
+spring.autoconfigure.exclude=${dataphin.publishing.spring.autoconfigure.exclude}
+#【发布域】【全局】数据库锁数据源名称，例如：dataSource
+dataphin.commons.lock.jdbc.dataSourceName=dataSource
+http.swagger.enabled=${http.swagger.enabled}
+dataphin.swagger.enabled=${dataphin.swagger.enabled}
+#--- 【发布域】【全局】系统配置 end ---
+
+
+dataphin.db.datasource.type=${dataphin.db.datasource.type}
+
+
+#--- 【发布域】【数据持久化模块】PostgreSQL 配置 start ---
+#【发布域】【数据持久化模块】数据源连接url，格式为jdbc地址 例如：jdbc:postgresql://rm-uf6p88te59z11w7y2ho.pg.rds.aliyuncs.com:1921/publishing?currentSchema=odps-dev
+dataphin.publishing.datasource.url=${dataphin.publishing.datasource.url}
+#【发布域】【数据持久化模块】数据源用户名
+dataphin.publishing.datasource.username=${dataphin.publishing.datasource.username}
+#【发布域】【数据持久化模块】数据源密码
+dataphin.publishing.datasource.password=${dataphin.publishing.datasource.password}
+#--- 【发布域】【数据持久化模块】PostgreSQL 配置 end ---
+
+
+#--- 【发布域】【2.7升级2.8数据持久化模块】PostgreSQL 配置 start ---
+#【发布域】【2.7升级2.8数据持久化模块】数据源连接url，格式为jdbc地址 为【dataphin库地址】，例如：jdbc:postgresql://rm-uf6p88te59z11w7y2ho.pg.rds.aliyuncs.com:1921/publishing?currentSchema=odps-dev
+dataphin.publishing.upgrade.datasource.url=${dataphin.publishing.upgrade.datasource.url}
+#【发布域】【2.7升级2.8数据持久化模块】数据源用户名
+dataphin.publishing.upgrade.datasource.username=${dataphin.publishing.upgrade.datasource.username}
+#【发布域】【2.7升级2.8数据持久化模块】数据源密码
+dataphin.publishing.upgrade.datasource.password=${dataphin.publishing.upgrade.datasource.password}
+#--- 【发布域】【2.7升级2.8数据持久化模块】PostgreSQL 配置 end ---
+
+#--- 【发布域】【RPC模块】各子域地址配置 start ---
+#【发布域】【RPC模块】metadataStreaming域地址
+dataphin.metadataStreaming.endpoint=${dataphin.metadataStreaming.endpoint}
+#【发布域】【RPC模块】developmentStreaming域地址
+dataphin.developmentStreaming.endpoint=${dataphin.developmentStreaming.endpoint}
+#【发布域】【RPC模块】resource域地址
+dataphin.resource.endpoint=${dataphin.resource.endpoint}
+#【发布域】【RPC模块】security域地址
+dataphin.security.endpoint=${dataphin.security.endpoint}
+#【发布域】【RPC模块】pipeline域地址
+dataphin.pipeline.endpoint=${dataphin.pipeline.endpoint}
+#【发布域】【RPC模块】project域地址
+dataphin.project.endpoint=${dataphin.project.endpoint}
+#【发布域】【RPC模块】dataprocess域地址
+dataphin.dataprocess.endpoint=${dataphin.dataprocess.endpoint}
+#【发布域】【RPC模块】datasecurity域地址
+dataphin.datasecurity.endpoint=${dataphin.datasecurity.endpoint}
+#【发布域】【RPC模块】oneid域地址
+dataphin.oneid.endpoint=${dataphin.oneid.endpoint}
+#【发布域】【RPC模块】planning域地址
+dataphin.planning.endpoint=${dataphin.planning.endpoint}
+#【发布域】【RPC模块】发布域升级地址，ide地址
+dataphin.upgrade.endpoint=${dataphin.upgrade.endpoint}
+#--- 【发布域】【RPC模块】各子域地址配置 end ---
+
+dataphin.dpgather.endpoint=${dataphin.dpgather.endpoint}
+dataphin.dpchangeguardian.endpoint=${dataphin.dpchangeguardian.endpoint}
+
+dataphin.oabpms.endpoint=${dataphin.oabpms.endpoint}
+dataphin.blackbox.endpoint=${dataphin.blackbox.endpoint}
+dataphin.ide.endpoint=${dataphin.ide.endpoint}
+
+#--- 【发布域】【i8模块】redis配置信息 start ---
+#【发布域】【i8模块】redis的host，例如：r-uf63cfacfa397f24pd.redis.rds.aliyuncs.com
+dataphin.i18n.redis.host=${dataphin.i18n.redis.host}
+#【发布域】【i8模块】redis的端口号，例如：6379
+dataphin.i18n.redis.port=${dataphin.i18n.redis.port}
+#【发布域】【i8模块】redis的密码
+dataphin.i18n.redis.password=${dataphin.i18n.redis.password}
+#【发布域】【i8模块】redis的数据库，例如：23
+dataphin.i18n.redis.database=${dataphin.i18n.redis.database}
+#【发布域】【i8模块】i18的db支持类型，例如：redis
+dataphin.i18n.support.db=${dataphin.i18n.support.db}
+#--- 【发布域】【i8模块】redis配置信息 end ---
+
+#--- 【发布域】【消息队列模块】MQ配置信息 start ---
+#【发布域】【消息队列模块】消息队列类型，例如：RocketMQ
+dataphin.mq.type=RocketMQ
+#【发布域】【消息队列模块】消息队列类型，例如：RocketMQ
+dataphin.mq.topic=${dataphin.mq.topic}
+#【发布域】【消息队列模块】消息队列地址，例如：http://MQ_INST_1375595421049471_Ba50eG5M.mq-internet-access.mq-internet.aliyuncs.com:80
+dataphin.mq.nameServer=${dataphin.mq.nameServer}
+#【发布域】【消息队列模块】消息队列accessKey
+dataphin.mq.accessKey=${dataphin.mq.accessKey}
+#【发布域】【消息队列模块】消息队列secretKey
+dataphin.mq.secretKey=${dataphin.mq.secretKey}
+#【发布域】【消息队列模块】消息队列消费者组
+dataphin.mq.consumer.group=${dataphin.mq.consumer.group}
+#【发布域】【消息队列模块】消息队列生产者组
+dataphin.mq.producer.group=${dataphin.mq.producer.group}
+#--- 【发布域】【消息队列模块】MQ配置信息 start ---
+
+#--- 【发布域】【集团安全控制模块】changefree配置 start ---
+#【发布域】【集团安全控制模块】authKey
+dataphin.changefree.authKey=${dataphin.changefree.authKey}
+#【发布域】【集团安全控制模块】authToken
+dataphin.changefree.authToken=${dataphin.changefree.authToken}
+#【发布域】【集团安全控制模块】API请求地址，例如：http://alichange-api.taobao.net/openApi/v1/gateway
+dataphin.changefree.endpoint=${dataphin.changefree.endpoint}
+#【发布域】【集团安全控制模块】风控开关，例如：false
+#-值为 false，不开启发布风险控制，适用弹内以外所有环境
+#-值为 true，开启发布风险控制，适用弹内环境
+dataphin.changefree.switch=${dataphin.changefree.switch}
+#--- 【发布域】【集团安全控制模块】MQ配置信息 end ---
+
+
+#--- 【发布域】【公共】安全加密 start
+#【发布域】【公共】安全加密方式，不同网络环境采用不同加密方式：
+#-值为 kms，采用 kms 加密服务，适用公共云环境/专有云环境
+#-值为 md5，采用私有云加密服务，适用所有场景，一般在本地/私有云/独立部署
+dataphin.safe.encrypt.type=${dataphin.safe.encrypt.type}
+#【发布域】【公共】安全加密网络环境，public
+dataphin.safe.encrypt.kms.network=${dataphin.safe.encrypt.kms.network}
+#【发布域】【公共】安全加密区域，例如：cn-hangzhou
+dataphin.safe.encrypt.kms.regionId=${dataphin.safe.encrypt.kms.regionId}
+#【发布域】【公共】安全加密accessKeyId，例如：DECRYPT@L@9f243591d770d9ea517196974176a04a25246b5209b96786978e55427bb6bfaa569797fc12dfc7e08838121e2a878d84
+dataphin.safe.encrypt.kms.accessKeyId=${dataphin.safe.encrypt.kms.accessKeyId}
+#【发布域】【公共】安全加密accessKeySecret，例如：ECRYPT@L@7cdea43e49f02ec3bbed7c7c67d64e8851785b53b73efe7f513cd8214e5250539529ff4d8b9e161aaf2501b15324fc6c
+dataphin.safe.encrypt.kms.accessKeySecret=${dataphin.safe.encrypt.kms.accessKeySecret}
+#【发布域】【公共】安全加密key
+dataphin.safe.encrypt.kms.key=${dataphin.safe.encrypt.kms.key}
+#--- 【发布域】【公共】安全加密 end
+
+
+#--- 【发布域】【导入导出模块】导入导出相关配置 start ---
+#【发布域】【导入导出模块】古灵阁地址
+dataphin.gringotts.endpoint=${dataphin.gringotts.endpoint}
+#【发布域】【导入导出模块】古灵阁调用名称 例如：dataphin-publishing
+dataphin.gringotts.component=${dataphin.gringotts.component}
+#【发布域】【导入导出模块】导入导出分组名称 例如：dataphin-publishing
+dataphin.exporter.sdk.rpc.group=${dataphin.exporter.sdk.rpc.group}
+#【发布域】【导入导出模块】datasource域地址
+dataphin.datasource.endpoint=${dataphin.datasource.endpoint}
+#【发布域】【导入导出模块】metadata域地址
+dataphin.metadata.endpoint=${dataphin.metadata.endpoint}
+#【发布域】【导入导出模块】导入导出SDK数据源名称
+dataphin.exporter.sdk.db.dataSourceName=${dataphin.exporter.sdk.db.dataSourceName}
+#【发布域】【导入导出模块】导入导出版本号，例如：v2.9.1
+dataphin.version=${dataphin.version}
+#【发布域】【导入导出模块】全局依赖SDK数据源名称
+dataphin.global.dependence.sdk.db.dataSourceName=dataSource
+#【发布域】【导入导出模块】全局依赖rpcTag
+rpcTag=appName=dataphin-k8s-publishing
+#【发布域】【导入导出模块】全局依赖本地rpcTag
+dataphin.local.rpctag=PUBLISHING
+#--- 【发布域】【导入导出模块】导入导出相关配置 end ---
+
+dataphin.sso.token.url=${dataphin.sso.token.url}
+dataphin.sso.exclusionUris=${dataphin.sso.exclusionUris}
+
