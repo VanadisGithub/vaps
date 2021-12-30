@@ -17,10 +17,11 @@ import java.util.stream.Collectors;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.metadata.CellData;
+import com.alibaba.excel.metadata.CellExtra;
 import com.alibaba.excel.read.listener.ReadListener;
 
+import com.google.common.base.Strings;
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.util.Strings;
 
 public class ExcelListener implements ReadListener<Map<Integer, String>> {
 
@@ -108,6 +109,11 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
         apiMap.add(o);
     }
 
+    @Override
+    public void extra(CellExtra cellExtra, AnalysisContext analysisContext) {
+
+    }
+
     @SneakyThrows
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
@@ -124,7 +130,7 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
             String desc = Optional.ofNullable(o.get(4)).orElse("").replace("\n", "<br>");
             String example = Optional.ofNullable(o.get(5)).orElse("").replace("\n", "<br>");
 
-            if (Strings.isNotBlank(head) && head.contains("API名称")) {
+            if (Strings.isNullOrEmpty(head) && head.contains("API名称")) {
                 addEnd(buffer, apiName, sheetName);
                 System.out.println(buffer);
                 buffer = new StringBuffer();
@@ -134,7 +140,7 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
                 buffer.append(name);
                 continue;
             }
-            if (Strings.isNotBlank(head) && head.contains("参数列表")) {
+            if (Strings.isNullOrEmpty(head) && head.contains("参数列表")) {
                 isReturn = false;
                 buffer.append("\n");
                 buffer.append("\n");
@@ -144,7 +150,7 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
                     + "| ---- | ---- | -------- | ------ | ---- |\n");
                 continue;
             }
-            if (Strings.isNotBlank(head) && head.contains("返回值")) {
+            if (Strings.isNullOrEmpty(head) && head.contains("返回值")) {
                 isReturn = true;
                 buffer.append("\n");
                 buffer.append("\n");
@@ -154,7 +160,7 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
                     + "| ---- | ---- | -------- | ------ |\n");
                 continue;
             }
-            if (Strings.isNotBlank(head) && !head.contains("说明")) {
+            if (Strings.isNullOrEmpty(head) && !head.contains("说明")) {
                 buffer.append("\n");
                 buffer.append("### ");
                 buffer.append(head);
@@ -169,7 +175,7 @@ public class ExcelListener implements ReadListener<Map<Integer, String>> {
                 }
                 continue;
             }
-            if (Strings.isBlank(head)) {
+            if (Strings.isNullOrEmpty(head)) {
                 if (isReturn) {
                     buffer.append(
                         String.format("| %s | %s | %s | %s |", name, type, example, desc));

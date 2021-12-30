@@ -1,7 +1,5 @@
 package jdk.spi;
 
-import com.google.auto.service.AutoService;
-
 /**
  * @program: van
  * @description:

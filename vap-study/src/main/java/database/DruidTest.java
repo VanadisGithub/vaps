@@ -20,7 +20,7 @@ import java.util.Map;
 public class DruidTest {
 
     public static void main(String[] args) {
-        String dbType = JdbcConstants.MYSQL; // JdbcConstants.MYSQL或者JdbcConstants.POSTGRESQL
+        String dbType = JdbcConstants.MYSQL.toString(); // JdbcConstants.MYSQL或者JdbcConstants.POSTGRESQL
         //        String sql = "select * from mytable a where a.id = 3";
         String sql = "SELECT name from da_api UNION SELECT user_name from da_user";
         String sql2 =

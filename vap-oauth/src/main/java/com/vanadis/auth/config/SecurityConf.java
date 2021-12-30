@@ -27,8 +27,9 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(userDetailService)
-                .passwordEncoder(passwordEncoder());//加密逻辑，可以自定义
+            .userDetailsService(userDetailService)
+            //加密逻辑，可以自定义
+            .passwordEncoder(passwordEncoder());
     }
 
     @Bean
@@ -39,12 +40,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/oauth/**").permitAll()
-                .anyRequest().authenticated()
-                .and().formLogin()//默认添加了 UsernamePasswordAuthenticationFilter
-                .and().logout().permitAll();
+            .authorizeRequests()
+            .antMatchers("/login").permitAll()
+            .antMatchers("/oauth/**").permitAll()
+            .anyRequest().authenticated()
+            .and().formLogin()//默认添加了 UsernamePasswordAuthenticationFilter
+            .and().logout().permitAll();
     }
 
     /**

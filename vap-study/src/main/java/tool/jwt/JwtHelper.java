@@ -54,7 +54,7 @@ public class JwtHelper {
 
             Algorithm algorithm = Algorithm.HMAC256(JWT_SECRET);
             return builder.sign(algorithm);
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             throw new Exception("encryption error");
         }
     }
@@ -71,10 +71,8 @@ public class JwtHelper {
             dpnToken.setUserName(jwt.getClaim(USER_NAME).asString());
             dpnToken.setTenantId(Long.parseLong(jwt.getClaim(TENANT_ID).asString()));
             return dpnToken;
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             throw new Exception("dpn_token解码异常.");
-        } catch (TokenExpiredException e) {
-            throw new Exception("dpn_token已过期.");
         }
     }
 
