@@ -1,16 +1,10 @@
-package com.vanadis.vap.service;
+package taobao;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
-import antlr.StringUtils;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.vanadis.lang.http.HttpUtils;
-import com.vanadis.vap.object.life.taobao.TaoBaoCoupon;
-import com.vanadis.vap.object.life.taobao.TaobaoBuyUrl;
-import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +13,6 @@ import java.util.Objects;
  * @description:
  * @author: Created by 遥远 on 2019-01-30 10:00
  */
-@Service
 public class TaobaoService {
 
     /**
@@ -29,16 +22,16 @@ public class TaobaoService {
      * @return
      */
     public List<TaobaoBuyUrl> coupon(String taobaoUrl) {
-        String id = null;
+        String id = StringUtils.urlGetId(taobaoUrl);
 
         String activityUrl = "https://detailskip.taobao.com/service/getData/1/p1/item/detail/sib.htm?itemId=" + id + "&callback=onSibRequestSuccess&modules=couponActivity";
 
-        Map<String, Object> headerMap = Maps.newHashMap();
+        Map<String, Object> headerMap = new HashMap<>();
         headerMap.put("referer", "https://item.taobao.com/");
         String resultStr = HttpUtils.get(activityUrl, headerMap, null);
 
         String rgex = "onSibRequestSuccess\\((.*?)\\);";
-        JSONObject data = JSONObject.parseObject("{}");
+        JSONObject data = JSONObject.parseObject(StringUtils.getSubUtilSimple(resultStr, rgex));
         JSONArray couponList = data.getJSONObject("data").getJSONObject("couponActivity").getJSONObject("coupon").getJSONArray("couponList");
 
         List<TaoBaoCoupon> taoBaoCoupons = Lists.newArrayList();

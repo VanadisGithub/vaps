@@ -28,6 +28,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
             .anyRequest().authenticated()
+
+            // 自定义异常处理
+            //.and()
+            //.exceptionHandling()
+            //.authenticationEntryPoint(myAuthenticationEntryPoint)
+            //.accessDeniedHandler(myAccessDeniedHandler)
             .and()
             .oauth2Login();
     }

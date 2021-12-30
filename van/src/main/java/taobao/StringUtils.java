@@ -1,11 +1,10 @@
-package com.vanadis.lang.String;
+package taobao;
 
-import java.util.List;
+
 import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.google.common.collect.Lists;
 
 /**
  * @author yaoyuan
@@ -17,12 +16,12 @@ public class StringUtils {
     private static String ID_PATTERN = "[?&]id=(\\d+)";
 
     public static void main(String[] args) {
-        String test = ".abc";
-        String test1 = "abc";
-        List<String> list = Lists.newArrayList(test,test1);
-        System.out.println(list.stream().filter(l -> l.startsWith(".")).findFirst().get());
-        System.out.println(test.startsWith("."));
-        System.out.println(test.startsWith("1"));
+//        String test = ".abc";
+//        String test1 = "abc";
+//        List<String> list = new ArrayList(test, test1);
+//        System.out.println(list.stream().filter(l -> l.startsWith(".")).findFirst().get());
+//        System.out.println(test.startsWith("."));
+//        System.out.println(test.startsWith("1"));
     }
 
     /**
@@ -49,7 +48,7 @@ public class StringUtils {
         while (m.find()) {
             return m.group(1);
         }
-        return org.apache.logging.log4j.util.Strings.EMPTY;
+        return null;
     }
 
     /**
@@ -183,4 +182,20 @@ public class StringUtils {
         return sb.toString();
     }
 
+    /**
+     * 读取控制台内容
+     */
+    public static String scanner(String tip) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder help = new StringBuilder();
+        help.append("请输入" + tip + "：");
+        System.out.println(help.toString());
+        if (scanner.hasNext()) {
+            String ipt = scanner.next();
+            if (ipt != null) {
+                return ipt;
+            }
+        }
+        throw new Exception("请输入正确的" + tip + "！");
+    }
 }
