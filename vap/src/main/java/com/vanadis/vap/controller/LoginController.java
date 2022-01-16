@@ -1,6 +1,6 @@
 package com.vanadis.vap.controller;
 
-import com.vanadis.lang.String.ValidateCode;
+import com.vanadis.lang.tool.ValidateCode;
 import com.vanadis.vap.common.Constants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,9 +30,9 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers(WHITE_LIST).permitAll()
+            //.antMatchers(WHITE_LIST).permitAll()
             .anyRequest().authenticated()
-            .and().formLogin().loginPage("/login").loginProcessingUrl("/loginAction").permitAll()
+            .and().formLogin().permitAll()
             .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
             .and().logout().permitAll()
             .and().csrf().disable();
@@ -54,17 +53,6 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    /**
-     * 认证管理bean
-     *
-     * @return
-     * @throws Exception
-     */
-    @Bean
-    public AuthenticationManager authManagerBean() throws Exception {
-        return super.authenticationManagerBean();
     }
 
 }

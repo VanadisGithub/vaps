@@ -4,7 +4,7 @@ server:
     session:
       cookie:
         name: VAP-SESSION
-        maxAge: 204800
+        maxAge: 86400
 
 spring:
   application:
@@ -17,3 +17,13 @@ spring:
 logging:
   level:
     root: info
+  file:
+    path: ./log/${spring.application.name}
+
+# ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}

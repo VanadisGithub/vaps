@@ -19,8 +19,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @JacksonAnnotation
 @JacksonAnnotationsInside
-@JsonSerialize(using = VapJsonSerializeUtil.class)
-public @interface VapJsonSerialize {
+@JsonSerialize(using = NumberFormatHandler.class)
+public @interface NumberFormat {
 
     /**
      * 除数

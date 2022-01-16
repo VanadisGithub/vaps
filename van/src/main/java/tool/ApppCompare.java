@@ -1,4 +1,4 @@
-package com.vanadis.lang.file;
+package tool;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

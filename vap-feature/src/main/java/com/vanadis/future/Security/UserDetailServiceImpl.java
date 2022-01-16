@@ -17,7 +17,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println(username);
+        log.info("root 123");
         return new User("root", new BCryptPasswordEncoder().encode("123"));
     }
 }

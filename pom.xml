@@ -10,6 +10,24 @@
     <version>${revision}</version>
     <description>vanadisyy@gmail.com</description>
 
+    <properties>
+        <!-- [revision]:maven指定程序父版本号标示 -->
+        <revision>1.0.0-SNAPSHOT</revision>
+        <java.version>8</java.version>
+        <springboot.version>2.6.1</springboot.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <modules>
         <module>vap</module>
         <module>vap-oa</module>
@@ -20,22 +38,6 @@
         <module>vap-study</module>
         <module>van</module>
     </modules>
-
-    <properties>
-        <!-- [revision]:maven指定程序父版本号标示 -->
-        <revision>1.0.0-SNAPSHOT</revision>
-        <java.version>8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
-    </parent>
 
     <!-- 声明：子pom不依赖 -->
     <dependencyManagement>

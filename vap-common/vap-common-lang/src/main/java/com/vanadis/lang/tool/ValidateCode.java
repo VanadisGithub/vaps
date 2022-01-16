@@ -1,4 +1,4 @@
-package com.vanadis.lang.String;
+package com.vanadis.lang.tool;
 
 import java.awt.Color;
 import java.awt.Font;

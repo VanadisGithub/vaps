@@ -1,6 +1,5 @@
-import org.fusesource.jansi.Ansi;
-
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,6 +10,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import org.fusesource.jansi.Ansi;
 
 /**
  * @program: vanadis
@@ -59,9 +60,14 @@ class Base {
     public static void addAlias() {
         try {
             String userHomeBash = System.getProperty("user.home") + "/.bashrc";
+            File file = new File(userHomeBash);
+            if (!file.exists()) {
+                System.out.println(userHomeBash + " is not excited !");
+                file.createNewFile();
+            }
             String alias = "/Users/yaoyuan/.m2/repository/vanadis/van/1.0-SNAPSHOT/van-1.0-SNAPSHOT.jar";
             Files.write(Paths.get(userHomeBash), Collections.singletonList(alias), StandardOpenOption.APPEND);
-            exec(new String[]{"source", userHomeBash});
+            exec(new String[] {"source", userHomeBash});
             List<String> alise = Files.lines(Paths.get(userHomeBash)).collect(java.util.stream.Collectors.toList());
             System.out.println(alise);
         } catch (IOException e) {

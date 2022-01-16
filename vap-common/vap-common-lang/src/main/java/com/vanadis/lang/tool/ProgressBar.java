@@ -1,4 +1,4 @@
-package com.vanadis.lang.String;
+package com.vanadis.lang.tool;
 
 /**
  * @program: vaps

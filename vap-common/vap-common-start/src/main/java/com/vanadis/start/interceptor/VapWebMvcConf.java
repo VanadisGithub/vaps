@@ -1,6 +1,5 @@
-package com.vanadis.start.conf;
+package com.vanadis.start.interceptor;
 
-import com.vanadis.start.interceptor.TestInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

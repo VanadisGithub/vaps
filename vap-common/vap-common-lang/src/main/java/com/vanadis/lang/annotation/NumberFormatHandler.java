@@ -20,17 +20,17 @@ import lombok.extern.slf4j.Slf4j;
  * @create: 2019-08-26 00:30
  */
 @Slf4j
-public class VapJsonSerializeUtil extends JsonSerializer<Object> implements ContextualSerializer {
+public class NumberFormatHandler extends JsonSerializer<Object> implements ContextualSerializer {
 
     private double diverse = 100;
 
     private int floatNum = 0;
 
-    public VapJsonSerializeUtil() {
+    public NumberFormatHandler() {
         log.info("VapJsonSerializeUtil.初始化");
     }
 
-    public VapJsonSerializeUtil(double diverse, int floatNum) {
+    public NumberFormatHandler(double diverse, int floatNum) {
         this.diverse = diverse;
         this.floatNum = floatNum;
     }
@@ -65,8 +65,8 @@ public class VapJsonSerializeUtil extends JsonSerializer<Object> implements Cont
      */
     @Override
     public JsonSerializer<?> createContextual(SerializerProvider serializerProvider, BeanProperty beanProperty) throws JsonMappingException {
-        VapJsonSerialize serialize = beanProperty.getAnnotation(VapJsonSerialize.class);
-        return new VapJsonSerializeUtil(serialize.diverse(), serialize.floatNum());
+        NumberFormat serialize = beanProperty.getAnnotation(NumberFormat.class);
+        return new NumberFormatHandler(serialize.diverse(), serialize.floatNum());
     }
 
 }

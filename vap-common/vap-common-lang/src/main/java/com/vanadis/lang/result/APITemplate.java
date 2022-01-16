@@ -59,23 +59,23 @@ public abstract class APITemplate<T> {
      *
      * @return 业务执行返回R格式
      */
-    public R<T> execute() {
+    public R<Object> execute() {
         try {
             checkParams();
         } catch (IllegalArgumentException e) {
             if (log.isInfoEnabled()) {
                 log.info("param check error:{}", e);
             }
-            return R.fail(e.getMessage());
+            return R.builder().message(e.getMessage()).build();
         }
         long sTime = System.currentTimeMillis();
         try {
             T r = process();
             onSuccess();
-            return R.ok(r);
+            return R.builder().build();
         } catch (Exception be) {
             onError(be);
-            return R.fail(be.getMessage());
+            return R.builder().message(be.getMessage()).build();
         } catch (Throwable e) {
             onError(e);
             if (e instanceof RuntimeException) {

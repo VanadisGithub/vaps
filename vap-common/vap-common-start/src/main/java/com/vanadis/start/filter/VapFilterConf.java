@@ -1,4 +1,4 @@
-package com.vanadis.start.conf;
+package com.vanadis.start.filter;
 
 import com.vanadis.start.filter.TestFilter;
 import org.springframework.context.annotation.Bean;

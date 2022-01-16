@@ -1,4 +1,4 @@
-package com.vanadis.start.conf;
+package com.vanadis.start.start;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -19,12 +19,13 @@ public class VapAppStartConf implements ApplicationListener<WebServerInitialized
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
         try {
-            String webUrl = InetAddress.getLocalHost().getHostAddress() + ":" + event.getWebServer().getPort();
-            log.info("Application At http://" + webUrl);
-            log.info("Swagger     At http://" + webUrl + "/swagger-ui/index.html");
+            String webUrl =
+                String.format("%s:%s", InetAddress.getLocalHost().getHostAddress(), event.getWebServer().getPort());
+            log.info("Application At http://{}", webUrl);
+            log.info("Swagger     At http://{}/swagger-ui/index.html", webUrl);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
     }
-    
+
 }

@@ -1,7 +1,3 @@
-import com.google.common.base.Strings;
-import org.apache.commons.lang3.StringUtils;
-import taobao.TaobaoService;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -10,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
+import com.google.common.base.Strings;
+import com.vanadis.lang.encryption.JwtUtils;
+import org.apache.commons.lang3.StringUtils;
+import taobao.TaobaoService;
 
 /**
  * van使用 [vim ~/.bashrc][source ~/.bashrc]
@@ -61,10 +62,17 @@ public class Main extends Base {
                 return;
             case "tb":
                 new TaobaoService().coupon(args[1]).forEach(coupon ->
-                        System.out.println(String.format("[%s]%s", coupon.getTitle(), coupon.getBuyUrl())));
+                    System.out.println(String.format("[%s]%s", coupon.getTitle(), coupon.getBuyUrl())));
                 return;
             case "init":
                 addAlias();
+                return;
+            case "jwt":
+                try {
+                    System.out.println(JwtUtils.decryption(args[0], args[1]));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 return;
             default:
                 if (StringUtils.isNumeric(args[0])) {
@@ -75,7 +83,6 @@ public class Main extends Base {
                 }
         }
     }
-
 
     private static String getInput() {
         while (true) {
