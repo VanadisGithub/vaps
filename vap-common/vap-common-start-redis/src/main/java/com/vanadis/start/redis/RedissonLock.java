@@ -1,4 +1,4 @@
-package com.vanadis.vap.conf.redis;
+package com.vanadis.start.redis;
 
 import java.util.function.Consumer;
 

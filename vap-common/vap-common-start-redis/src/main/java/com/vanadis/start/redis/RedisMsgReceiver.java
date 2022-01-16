@@ -1,4 +1,4 @@
-package com.vanadis.vap.conf.redis;
+package com.vanadis.start.redis;
 
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
