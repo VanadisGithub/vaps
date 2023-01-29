@@ -14,7 +14,7 @@ import com.vanadis.lang.object.ObjectUtils;
  * @author: 遥远
  * @create: 2019-07-25 13:48
  */
-public class ListSortUtils {
+public class ListUtils {
 
     /**
      * 根据字段排序
