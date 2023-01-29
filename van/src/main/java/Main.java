@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ServiceLoader;
 
+import cmd.Cmd;
 import com.google.common.base.Strings;
 import com.vanadis.lang.encryption.JwtUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -24,22 +26,39 @@ public class Main extends Base {
     private static String cmdFile = "./commands.txt";
 
     static {
-        readCmd();
+        //readCmd();
     }
 
     public static void main(String[] args) {
         if (args.length == 0) {
             welcome();
-            showCmd();
-            System.out.print("请选择执行命令:\n");
+            //showCmd();
             while (true) {
+                System.out.print("请选择执行命令:\n");
                 String input = getInput();
-                excuteCmd(input.split(" "));
+                runCmd(input.split(" "));
             }
         } else {
-            excuteCmd(args);
+            runCmd(args);
         }
 
+    }
+
+    private static void runCmd(String[] args) {
+        ServiceLoader<Cmd> cmds = ServiceLoader.load(Cmd.class);
+        System.out.println(StringUtils.join(cmds, "\n\t"));
+        for (Cmd cmd : cmds) {
+            if (cmd.cmdName().equals(args[0])) {
+                String[] params = deleteFirst(args);
+                cmd.run(params);
+            }
+        }
+    }
+
+    static String[] deleteFirst(String[] arr) {
+        String[] temp = new String[arr.length - 1];
+        System.arraycopy(arr, 1, temp, 0, temp.length);
+        return temp;
     }
 
     private static void excuteCmd(String[] args) {

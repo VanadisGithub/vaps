@@ -14,7 +14,7 @@
         <!-- [revision]:maven指定程序父版本号标示 -->
         <revision>1.0.0-SNAPSHOT</revision>
         <java.version>8</java.version>
-        <springboot.version>2.6.1</springboot.version>
+        <springboot.version>2.6.2</springboot.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,22 +24,23 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.1</version>
+        <version>2.6.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modules>
-        <module>vap</module>
-        <module>vap-oa</module>
-        <module>vap-netty</module>
-        <module>vap-feature</module>
-        <module>vap-oauth</module>
-        <module>vap-common</module>
-        <module>vap-study</module>
         <module>van</module>
+        <module>vap</module>
+        <module>vap-common</module>
+        <module>vap-feature</module>
+        <module>vap-netty</module>
+        <module>vap-oa</module>
+        <module>vap-oauth</module>
+        <module>vap-studio</module>
+        <module>vap-study</module>
     </modules>
 
-    <!-- 声明：子pom不依赖 -->
+    <!-- 声明（子pom不依赖） -->
     <dependencyManagement>
 
         <dependencies>
@@ -67,13 +68,13 @@
 
     </dependencyManagement>
 
-    <!-- 依赖：子pom依赖 -->
+    <!-- 依赖（子pom依赖） -->
     <dependencies>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.80-TEST-SNAPSHOT</version>
+            <version>1.2.83</version>
         </dependency>
 
         <dependency>
@@ -89,16 +90,5 @@
         </dependency>
 
     </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 
 </project>

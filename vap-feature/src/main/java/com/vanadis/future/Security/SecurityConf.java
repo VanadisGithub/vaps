@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
  */
 @Slf4j
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConf extends WebSecurityConfigurerAdapter {
 
     private static final String[] WHITE_LIST = {"/**"};
@@ -30,7 +30,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            //.antMatchers(WHITE_LIST).permitAll()
+            .antMatchers(WHITE_LIST).permitAll()
             .anyRequest().authenticated()
             .and().formLogin().permitAll()
             .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())

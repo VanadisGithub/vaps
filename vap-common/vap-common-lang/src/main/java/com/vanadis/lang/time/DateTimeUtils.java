@@ -26,6 +26,8 @@ public class DateTimeUtils {
 
     public final static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd hh:mm:ss";
 
+    public final static String YYMMDD_HHMM = "yyMMdd hh:mm";
+
     public static void main(String[] args) {
 
         System.out.println(DateTimeUtils.formatTime(LocalDateTime.now(), YYYY_MM_DD_HH_MM_SS));

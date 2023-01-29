@@ -62,7 +62,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
             // 选择哪些接口作为swagger的doc发布
             .select()
             .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
+            .paths(PathSelectors.regex("/error").negate())
+            //.paths(PathSelectors.any())
             .build()
 
             // 支持的通讯协议集合

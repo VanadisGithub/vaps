@@ -20,8 +20,8 @@ public class ApppCompare {
 
     public static void main(String[] args) throws IOException {
 
-        String file1 = "./vap-lang/src/main/java/com/vanadis/lang/file/file1";
-        String file2 = "./vap-lang/src/main/java/com/vanadis/lang/file/file2";
+        String file1 = "./van/src/main/java/tool/file1";
+        String file2 = "./van/src/main/java/tool/file2";
 
         List<String> strings1 = Files.readAllLines(Paths.get(file1), StandardCharsets.UTF_8);
         List<String> strings2 = Files.readAllLines(Paths.get(file2), StandardCharsets.UTF_8);

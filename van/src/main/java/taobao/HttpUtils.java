@@ -1,5 +1,9 @@
 package taobao;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Map;
+
 import com.google.common.base.Strings;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -12,10 +16,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.Map;
 
 /**
  * @author yaoyuan
@@ -82,6 +82,8 @@ public class HttpUtils {
 
             if (statusCode == HttpStatus.SC_OK) {
                 return EntityUtils.toString(response.getEntity(), "utf-8");
+            } else {
+                System.out.println(EntityUtils.toString(response.getEntity(), "utf-8"));
             }
         } catch (IOException e) {
             if (isLog) {
