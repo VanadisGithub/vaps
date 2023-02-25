@@ -1,7 +1,0 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-#com.vanadis.start.filter.VapFilterConf,\
-#com.vanadis.start.start.VapAppStartConf,\
-#com.vanadis.start.swagger.SwaggerConfig,\
-#com.vanadis.start.interceptor.VapWebMvcConf
-
-

@@ -35,18 +35,4 @@ public class Mem {
         String dataStr = FileUtils.read(DATA_PATH);
         return JSONObject.parseObject(dataStr);
     }
-
-    @GetMapping("run")
-    public String run() throws IOException, InterruptedException {
-        BufferedReader reader = null;
-        Process process = Runtime.getRuntime().exec("ls");
-        int exitValue = process.waitFor();
-        // 返回值
-        reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String line = null;
-        while ((line = reader.readLine()) != null) {
-            System.out.println("mac@wxw %  " + line);
-        }
-        return "1";
-    }
 }
