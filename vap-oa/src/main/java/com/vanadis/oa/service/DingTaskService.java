@@ -24,7 +24,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * DingTaskService
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/12/6 10:11 AM
  */
 @Service

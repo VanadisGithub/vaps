@@ -19,7 +19,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
  */
 public class JwtHelper {
 
-    private static String JWT_SECRET = "dataphin";
+    private static String JWT_SECRET = "data";
 
     private static Integer SESSION_TIME = 30;
 
@@ -30,7 +30,7 @@ public class JwtHelper {
     private static String TENANT_ID = "TENANT_ID";
 
     public static void main(String[] args) throws Exception {
-        String dpnToken = encryption(123456L, "dataphin_dev", 10001L, new Date());
+        String dpnToken = encryption(123456L, "dev", 10001L, new Date());
         System.out.println(dpnToken);
         System.out.println(decryption(dpnToken));
     }

@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 /**
  * JwtHelper
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2020/12/6 11:38 上午
  */
 public class JwtUtils {

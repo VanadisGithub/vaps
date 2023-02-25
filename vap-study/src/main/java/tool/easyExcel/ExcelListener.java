@@ -25,9 +25,7 @@ import lombok.SneakyThrows;
 
 public class ExcelListener implements ReadListener<Map<Integer, String>> {
 
-    static String filePath =
-        "/Users/yaoyuan/IdeaProjects/dataphin/dataphin-openapi-sdk/aliyun-java-sdk-dataphin/src/test/java/com"
-            + "/aliyuncs/dataphin/model/v20200830/";
+    static String filePath ="";
     static Map<String, String> fileMap = getFiles(filePath);
     List<Map<Integer, String>> apiMap = new ArrayList<>();
 

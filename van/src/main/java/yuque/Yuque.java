@@ -19,7 +19,7 @@ import taobao.HttpUtils;
  * API文档
  * https://www.yuque.com/yuque/developer/doc
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2022/3/3 5:06 PM
  */
 public class Yuque {

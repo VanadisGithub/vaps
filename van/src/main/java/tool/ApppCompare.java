@@ -13,7 +13,7 @@ import com.google.common.collect.Sets;
 /**
  * AppCompare
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/5/27 4:18 下午
  */
 public class ApppCompare {

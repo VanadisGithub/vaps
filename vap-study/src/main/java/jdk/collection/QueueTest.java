@@ -8,7 +8,7 @@ import com.facebook.presto.jdbc.internal.guava.collect.Queues;
 /**
  * QueueTest
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/5/6 5:19 下午
  */
 public class QueueTest {

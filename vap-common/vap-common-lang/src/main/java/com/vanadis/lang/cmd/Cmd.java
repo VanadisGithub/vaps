@@ -12,7 +12,7 @@ import org.apache.commons.exec.PumpStreamHandler;
 /**
  * Cmd
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2022/2/15 10:16 AM
  */
 public class Cmd {

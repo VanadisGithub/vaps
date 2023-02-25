@@ -14,7 +14,7 @@ import com.google.common.base.Predicates;
 /**
  * 重试
  *
- * @author yy287502@alibaba-inc.com
+ * @author yaoyuan
  * @date 2021/4/25 5:13 下午
  */
 public class RetryTest {

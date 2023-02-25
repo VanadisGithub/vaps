@@ -1,12 +1,12 @@
 package com.vanadis.studio.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import com.alibaba.fastjson.JSONObject;
 
 import com.vanadis.lang.file.FileUtils;
+import com.vanadis.studio.entity.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,20 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("")
-public class Mem {
+public class MemController {
 
-    private static final String DATA_PATH = "./vap-studio/data.json";
-    private JSONObject data = new JSONObject();
+    @Autowired
+    private Data data;
 
     @GetMapping("write")
-    public void write(String text) throws IOException {
-        data.put(text, text);
-        FileUtils.write(DATA_PATH, data.toJSONString());
+    public void write(String text) {
+        data.write(text, text);
     }
 
     @GetMapping("read")
-    public JSONObject read() throws IOException {
-        String dataStr = FileUtils.read(DATA_PATH);
-        return JSONObject.parseObject(dataStr);
+    public JSONObject read() {
+        return data.read();
     }
 }
