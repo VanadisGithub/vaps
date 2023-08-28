@@ -32,7 +32,6 @@
 
     <modules>
         <module>vap-common-lang</module>
-        <module>vap-common-start</module>
         <module>vap-common-start-redis</module>
     </modules>
 

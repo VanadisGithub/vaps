@@ -7,13 +7,6 @@
     <artifactId>vap-study</artifactId>
     <version>${revision}</version>
 
-    <parent>
-        <artifactId>vap-common</artifactId>
-        <groupId>com.vanadis</groupId>
-        <version>${revision}</version>
-        <relativePath>../vap-common/pom.xml</relativePath>
-    </parent>
-
     <dependencies>
 
         <!--database-->
