@@ -20,7 +20,7 @@ public class CmdUtils {
 
     public static void exec(String[] command) {
         try {
-            System.out.println("exec: " + String.join(" ", command));
+            Log.info("exec: " + String.join(" ", command));
             Process pro = Runtime.getRuntime().exec(command);
             pro.waitFor();
             InputStream in = pro.getInputStream();

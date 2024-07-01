@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>van-tools</artifactId>
+    <artifactId>van-cmd-tools</artifactId>
     <version>${revision}</version>
 
     <properties>
@@ -63,15 +63,12 @@
         </dependency>
 
         <dependency>
-            <groupId>com.vanadis</groupId>
-            <artifactId>van-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>fastjson</artifactId>
-                    <groupId>com.alibaba</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>io.kubernetes</groupId>
+            <artifactId>client-java</artifactId>
+            <version>20.0.1</version> <!-- 请将版本号替换为最新版本 -->
         </dependency>
+
+
     </dependencies>
 
     <build>

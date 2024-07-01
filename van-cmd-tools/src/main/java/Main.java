@@ -1,8 +1,8 @@
 import cmd.Cmd;
 import com.google.common.base.Strings;
-import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.Ansi;
 import utils.CmdUtils;
+import utils.Constant;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  *
  * @author yaoyuan
  */
-public class Main extends Constant {
+public class Main {
 
     private static ServiceLoader<Cmd> cmds;
 
@@ -48,8 +48,9 @@ public class Main extends Constant {
 
     private static void cmdList() {
         for (Cmd cmd : cmds) {
-            System.out.println(cmd.cmdName());
+            System.out.printf("[%s]", cmd.cmdName());
         }
+        System.out.println();
     }
 
     private static void runCmd(String[] args) {
@@ -76,14 +77,15 @@ public class Main extends Constant {
             String userHomeBash = System.getProperty("user.home") + "/.bashrc";
             File file = new File(userHomeBash);
             if (!file.exists()) {
-                System.out.println(userHomeBash + " is not excited !");
                 file.createNewFile();
             }
-            String alias = "/Users/yaoyuan/.m2/repository/vanadis/van/1.0-SNAPSHOT/van-1.0-SNAPSHOT.jar";
+            String alias = "alias van='java -jar /Users/yaoyuan/.m2/repository/com/vanadis/van-cmd-tools/1.0.0-SNAPSHOT/van-cmd-tools-1.0.0-SNAPSHOT.jar'";
+            List<String> allLines = Files.readAllLines(Paths.get(userHomeBash));
+            if (allLines.contains(alias)) {
+                return;
+            }
             Files.write(Paths.get(userHomeBash), Collections.singletonList(alias), StandardOpenOption.APPEND);
             CmdUtils.exec(new String[]{"source", userHomeBash});
-            List<String> alise = Files.lines(Paths.get(userHomeBash)).collect(java.util.stream.Collectors.toList());
-            System.out.println(alise);
         } catch (IOException e) {
             e.printStackTrace();
         }

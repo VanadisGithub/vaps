@@ -1,8 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
-import org.fusesource.jansi.Ansi;
+package utils;
 
 /**
  * @program: vanadis
@@ -10,7 +6,7 @@ import org.fusesource.jansi.Ansi;
  * @author: 遥远
  * @create: 2020-04-19 00:34
  */
-class Constant {
+public class Constant {
 
     public final static String VERSION = "1.0.0";
 
